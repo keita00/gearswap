@@ -320,3 +320,13 @@ windower.register_event('zone change', function()
         windower.add_to_chat(200, '>> Zone change — gear recheck complete.')
     end)
 end)
+
+-- Additional:
+load COR gear function load_cor_gear()
+    if player.main_job == 'COR' then
+        include('data/gear_cor.lua')
+        init_gear() windower.add_to_chat(200, '>> COR gear initialized.')
+    end
+end
+
+-- Call this during job setup load_cor_gear()
