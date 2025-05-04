@@ -1,0 +1,1 @@
+[FULL THF.lua content goes here]
