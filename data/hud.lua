@@ -1,48 +1,66 @@
--- data/hud.lua
+-- COR.lua (Main GearSwap entry)
+include('organizer-lib')
+include('Mote-Include.lua')
+res = require('resources')
+texts = require('texts')
 
-function init_hud()
-    hud = texts.new({
-        pos = {x = 1000, y = 50},
-        text = {font = 'Arial', size = 12},
-        flags = {draggable = true, bold = true},
-        bg = {alpha = 200, red = 0, green = 0, blue = 0},
-        padding = 5
-    })
+-- Modular includes
+include('data/gear_cor.lua')
+include('data/functions.lua')
+include('data/hud.lua')
+
+function get_sets()
+    mote_include_version = 2
+    include('Mote-Include.lua')
 end
 
-init_hud()
-
-function update_hud()
-    local trust_line = ''
-    local trusts = {}
-    if kupipi_active then table.insert(trusts, 'Kupipi') end
-    if joachim_active then table.insert(trusts, 'Joachim') end
-    if koru_active then table.insert(trusts, 'Koru') end
-    if ulmia_active then table.insert(trusts, 'Ulmia') end
-    if arciela_active then table.insert(trusts, 'Arciela') end
-    if shantotto_active then table.insert(trusts, 'Shantotto') end
-    if selhteus_active then table.insert(trusts, "Selh'teus") end
-    if amchuchu_active then table.insert(trusts, 'Amchuchu') end
-    if aadev_active then table.insert(trusts, 'AAEV') end
-    if quiltada_active then table.insert(trusts, "Qu'ltada") end
-    if #trusts > 0 then
-        trust_line = 'Trusts: ' .. table.concat(trusts, ', ')
-    end
-
-    local job_line = ''
-    if player.main_job == 'COR' then
-        job_line = 'COR Mode: ' .. state.CORMode.value
-    else
-        job_line = string.format(
-            'Weapon: %s | AutoRA: %s | TH: %s | Haste: %s | Acc: %s',
-            state.WeaponMode.value,
-            tostring(state.AutoRA.value),
-            state.TreasureMode.value,
-            state.HasteMode.value,
-            state.AccMode.value
-        )
-    end
-
-    hud:text(string.format('%s\nJP Tier: %d\n%s', job_line, jp_tier or 0, trust_line))
-    hud:show()
+function job_setup()
+    setup_states()
+    determine_jp_tier()
+    check_trusts()
+    load_cor_gear()
+    check_ammo()
+    check_ranged_weapon()
+    tp_ready_notified = false
+    auto_ra_delay = 1.1
+    last_ra_time = 0
 end
+
+function user_setup()
+    select_default_macro_book()
+    set_lockstyle()
+end
+
+function user_unload()
+end
+
+function init_gear_sets()
+    init_gear()
+end
+
+function precast(spell)
+    handle_precast(spell)
+end
+
+function midcast(spell)
+end
+
+function aftercast(spell)
+    handle_aftercast(spell)
+end
+
+function status_change(new, old)
+    handle_status_change(new, old)
+end
+
+function self_command(cmd)
+    handle_self_command(cmd)
+end
+
+function buff_change(name, gain)
+    handle_buff_change(name, gain)
+end
+
+windower.register_event('prerender', function()
+    handle_prerender()
+end)
