@@ -29,15 +29,20 @@ function update_hud()
         trust_line = 'Trusts: ' .. table.concat(trusts, ', ')
     end
 
-    hud:text(string.format(
-        'Weapon: %s | AutoRA: %s | TH: %s | Haste: %s | Acc: %s\nJP Tier: %d\n%s',
-        state.WeaponMode.value,
-        tostring(state.AutoRA.value),
-        state.TreasureMode.value,
-        state.HasteMode.value,
-        state.AccMode.value,
-        jp_tier or 0,
-        trust_line
-    ))
+    local job_line = ''
+    if player.main_job == 'COR' then
+        job_line = 'COR Mode: ' .. state.CORMode.value
+    else
+        job_line = string.format(
+            'Weapon: %s | AutoRA: %s | TH: %s | Haste: %s | Acc: %s',
+            state.WeaponMode.value,
+            tostring(state.AutoRA.value),
+            state.TreasureMode.value,
+            state.HasteMode.value,
+            state.AccMode.value
+        )
+    end
+
+    hud:text(string.format('%s\nJP Tier: %d\n%s', job_line, jp_tier or 0, trust_line))
     hud:show()
 end
