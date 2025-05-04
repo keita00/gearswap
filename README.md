@@ -1,4 +1,4 @@
-# THF GearSwap for FFXI
+# THF and COR GearSwap for FFXI
 
 Feature-rich, modular GearSwap script for Thief (/DNC) and COR in Final Fantasy XI.
 
