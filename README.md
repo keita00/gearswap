@@ -6,7 +6,7 @@ This is a complete GearSwap `.lua` setup for **Thief (THF)** in *Final Fantasy X
 
 ### Core Gear Logic
 - Accuracy Mode Toggle (`//gs c toggleAcc`)
-  - Cycles through: Default â Acc â AccMid â AccHigh
+  - Cycles through: Default, Acc, AccMid, AccHigh
 - Treasure Hunter Toggle (`//gs c toggleTH`)
   - Enables or disables TH gear logic
 - WeaponSkill Gear by Name:
