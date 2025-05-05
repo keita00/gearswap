@@ -1,28 +1,50 @@
-# THF and COR GearSwap for FFXI
+# THF GearSwap Configuration
 
-Feature-rich, modular GearSwap script for Thief (/DNC) and COR in Final Fantasy XI.
+This is a complete GearSwap `.lua` setup for **Thief (THF)** in *Final Fantasy XI*, customized for gameplay quality, flexibility, and advanced HUD feedback.
 
 ## Features
 
-- BiS gear sets with subjob and Trust-based logic
-- HUD display via Windower `texts`
-- Automation:
-  - Weapon Skill selection based on equipped weapon
-  - TP Bonus logic (waist or weapon)
-  - Ammo/Ranged fallback
-  - Trust-aware idle and engaged sets
-- Notifications (WS, TP threshold, TH tagging)
-- Event hooks (zoning, equip changes)
-- Modularized Lua files
+### Core Gear Logic
+- Accuracy Mode Toggle (`//gs c toggleAcc`)
+  - Cycles through: Default â Acc â AccMid â AccHigh
+- Treasure Hunter Toggle (`//gs c toggleTH`)
+  - Enables or disables TH gear logic
+- WeaponSkill Gear by Name:
+  - Aeolian Edge
+  - Evisceration
+  - Exenterator
+- Weapon switching: Shijo (WS & TP), Tauret (Evisceration)
 
-## Installation
+### Windower Addon Integration
+- Uses `texts` for HUD display
+- Uses `timers` addon for Job Ability durations
+- Uses `send_command` to manage macros and timers
 
-1. Clone or download this repo.
-2. Place `THF.lua` in your Windower `addons/GearSwap/data` directory.
-3. Create a `data/` folder and place `gear.lua`, `functions.lua`, and `hud.lua` inside it.
-4. Load your character with `//gs load THF`.
+### HUD Display
+- TH status (ON/OFF)
+- Accuracy Mode
+- Current Subjob (SJ: XXX)
+- Active Trusts (Kupipi, Qultada, etc.)
 
-## Requirements
+### Automation Features
+- Subjob-based gear handling
+- Real-time detection and alerts for:
+  - **Doom**
+  - **Silence**
+  - **Paralysis**
+- **Day/Weather Match Alert** for WS
+- **Capacity Ring detection**
+- Smart logic for applying TH to appropriate abilities
 
-- Windower4 with GearSwap
-- `texts` addon loaded
+## Files
+
+- `THF.lua`: Primary GearSwap logic and configuration
+- Compatible with Windower 4 and modern FFXI clients
+
+## Planned / Optional Features
+- Lockstyle automation
+- Macro book/set automation
+- Job Point scaling logic
+- Idle refresh gear switching
+
+---
