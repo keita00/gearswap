@@ -79,7 +79,36 @@ function get_sets()
     Toutatis_AGI  = { name="Toutatis's Cape", augments={'AGI+20','Evasion+25','Store TP+10','Eva.+20/Magic Eva.+20'} }
     Toutatis_INT  = { name="Toutatis's Cape", augments={'INT+30','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%'} }
 
-    sets.precast = {}
+function precast(spell)
+    if sets.JA[spell.english] then
+        equip(sets.JA[spell.english])
+        if TH_mode and (spell.english == "Provoke" or spell.english == "Mug" or spell.english == "Feint") then
+            equip(sets.TH)
+            add_to_chat(122, 'Treasure Hunter gear equipped.')
+        end
+    elseif spell.action_type == 'Magic' then
+        equip(sets.precast.FC)
+        add_to_chat(122, 'Fast Cast set equipped.')
+    elseif spell.type == 'WeaponSkill' then
+        -- Weapon selection logic
+        if spell.english == "Aeolian Edge" then
+            equip({main=Shijo_WS, sub="Gleti's Knife"})
+        elseif spell.english == "Evisceration" then
+            equip({main=Tauret, sub="Gleti's Knife"})
+        elseif spell.english == "Exenterator" or spell.english == "Savage Blade" then
+            equip({main=Shijo_WS, sub="Gleti's Knife"})
+        else
+            equip({main=Shijo_WS, sub="Gleti's Knife"})
+        end
+
+        -- Fallback WS set handling
+        local ws_set = sets.ws[spell.english] or sets.ws["Default"]
+        equip(ws_set)
+        check_day_weather_bonus(spell)
+        add_to_chat(122, 'WS Set equipped: ' .. spell.english)
+    end
+end
+ 
     sets.precast.FC = {
         hands="Adhemar Wrist. +1",
         ear1="Loquac. Earring",
@@ -143,8 +172,33 @@ function get_sets()
             legs="Pill. Culottes +3", feet="Adhe. Gamashes +1", neck="Asn. Gorget +2",
             ear1="Cessance Earring", ear2="Suppanomimi", ring1="Epona's Ring", ring2="Chirich Ring +1",
             waist="Reiki Yotai", back=Toutatis_AGI
-        }
+        },
+        ["Savage Blade"] = {
+        head="Pill. Bonnet +3",
+        body="Pillager's Vest +3",
+        hands="Plun. Armlets +3",
+        legs="Pill. Culottes +3",
+        feet="Plun. Pulaines +1",
+        neck="Asn. Gorget +2",
+        ear1="Ishvara Earring", ear2="Moonshade Earring",
+        ring1="Epaminondas's Ring", ring2="Regal Ring",
+        waist="Sailfi Belt +1",
+        back=Toutatis_WSD
+    },
+    -- Default fallback WS set
+    ["Default"] = {
+        head="Adhemar Bonnet +1",
+        body="Pillager's Vest +3",
+        hands="Adhemar Wrist. +1",
+        legs="Pill. Culottes +3",
+        feet="Adhe. Gamashes +1",
+        neck="Asn. Gorget +2",
+        ear1="Odr Earring", ear2="Moonshade Earring",
+        ring1="Epona's Ring", ring2="Chirich Ring +1",
+        waist="Reiki Yotai",
+        back=Toutatis_STP
     }
+}
 end
 
 function precast(spell)
