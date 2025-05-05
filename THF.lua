@@ -184,9 +184,9 @@ end
         ring1="Epaminondas's Ring", ring2="Regal Ring",
         waist="Sailfi Belt +1",
         back=Toutatis_WSD
-    },
-    -- Default fallback WS set
-    ["Default"] = {
+        },
+        -- Default fallback WS set
+        ["Default"] = {
         head="Adhemar Bonnet +1",
         body="Pillager's Vest +3",
         hands="Adhemar Wrist. +1",
@@ -197,8 +197,8 @@ end
         ring1="Epona's Ring", ring2="Chirich Ring +1",
         waist="Reiki Yotai",
         back=Toutatis_STP
+        }
     }
-}
 end
 
 function precast(spell)
