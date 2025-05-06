@@ -79,81 +79,55 @@ function get_sets()
     Toutatis_AGI  = { name="Toutatis's Cape", augments={'AGI+20','Evasion+25','Store TP+10','Eva.+20/Magic Eva.+20'} }
     Toutatis_INT  = { name="Toutatis's Cape", augments={'INT+30','Mag. Acc+20 /Mag. Dmg.+20','Weapon skill damage +10%','Phys. dmg. taken-10%'} }
 
-function precast(spell)
-    if sets.JA[spell.english] then
-        equip(sets.JA[spell.english])
-        if TH_mode and (spell.english == "Provoke" or spell.english == "Mug" or spell.english == "Feint") then
-            equip(sets.TH)
-            add_to_chat(122, 'Treasure Hunter gear equipped.')
-        end
-    elseif spell.action_type == 'Magic' then
-        equip(sets.precast.FC)
-        add_to_chat(122, 'Fast Cast set equipped.')
-    elseif spell.type == 'WeaponSkill' then
-        -- Weapon selection logic
-        if spell.english == "Aeolian Edge" then
-            equip({main=Shijo_WS, sub="Gleti's Knife"})
-        elseif spell.english == "Evisceration" then
-            equip({main=Tauret, sub="Gleti's Knife"})
-        elseif spell.english == "Exenterator" or spell.english == "Savage Blade" then
-            equip({main=Shijo_WS, sub="Gleti's Knife"})
-        else
-            equip({main=Shijo_WS, sub="Gleti's Knife"})
-        end
-
-        -- Fallback WS set handling
-        local ws_set = sets.ws[spell.english] or sets.ws["Default"]
-        equip(ws_set)
-        check_day_weather_bonus(spell)
-        add_to_chat(122, 'WS Set equipped: ' .. spell.english)
-    end
-end
- 
-    sets.precast.FC = {
-        hands="Adhemar Wrist. +1",
-        ear1="Loquac. Earring",
-        ring1="Kishar Ring"
-    }
-
     sets.engaged = {
         head="Adhemar Bonnet +1", body="Pillager's Vest +3", hands="Adhemar Wrist. +1",
         legs="Pill. Culottes +3", feet="Adhe. Gamashes +1", neck="Asn. Gorget +2",
         ear1="Cessance Earring", ear2="Suppanomimi", ring1="Epona's Ring", ring2="Chirich Ring +1",
         waist="Reiki Yotai", back=Toutatis_STP
     }
-
     sets.engaged.Acc = set_combine(sets.engaged, {
         head="Mummu Bonnet +2", hands="Mummu Wrists +2", legs="Mummu Kecks +1", feet="Mummu Gamash. +2", ring2="Regal Ring"
     })
-
     sets.engaged.AccMid = set_combine(sets.engaged.Acc, {
         neck="Asn. Gorget +2", ear2="Telos Earring"
     })
-
     sets.engaged.AccHigh = set_combine(sets.engaged.AccMid, {
         ring1="Chirich Ring +1", waist="Kentarch Belt +1"
     })
+	-- Subjob-specific accuracy overrides
+	sets.engaged.DNC = set_combine(sets.engaged, {
+		hands="Adhemar Wrist. +1", waist="Reiki Yotai"
+	})
+	sets.engaged.DNC.Acc = set_combine(sets.engaged.Acc, {
+		hands="Mummu Wrists +2"
+	})
+	sets.engaged.DNC.AccMid = set_combine(sets.engaged.AccMid, {
+		waist="Reiki Yotai"
+	})
+	sets.engaged.WAR = set_combine(sets.engaged, {
+		ear1="Sherida Earring", waist="Sailfi Belt +1"
+	})
+	sets.engaged.DRG = set_combine(sets.engaged, {
+		legs="Pill. Culottes +3"
+	})
     sets.idle = {
         head="Turms Cap +1", body="Tu. Harness +1", hands="Turms Mittens +1",
         legs="Turms Subligar +1", feet="Turms Leggings +1", neck="Asn. Gorget +2",
         ring1="Defending Ring", ring2="Moonlight Ring", ear1="Suppanomimi",
         waist="Reiki Yotai", back=Toutatis_STP
     }
-
     sets.JA = {
         ["Sneak Attack"] = { hands="Plun. Armlets +3" },
         ["Trick Attack"] = { hands="Plun. Armlets +3" },
         ["Feint"] = { legs="Plun. Culottes +3" },
         ["Bully"] = {}, ["Mug"] = {}, ["Accomplice"] = {}, ["Collaborator"] = {}
     }
-
     sets.TH = {
         head="Wh. Rarab Cap +1",
         hands="Plun. Armlets +3",
         waist="Chaac Belt",
         feet="Skulker's Poulaines +3"
     }
-
     sets.ws = {
         ["Aeolian Edge"] = {
             head="Mummu Bonnet +2", body="Pillager's Vest +3", hands="Pill. Armlets +1",
@@ -185,6 +159,42 @@ end
         waist="Sailfi Belt +1",
         back=Toutatis_WSD
         },
+		["Mandalic Stab"] = {
+			head="Pill. Bonnet +3",
+			body="Pillager's Vest +3",
+			hands="Plun. Armlets +3",
+			legs="Pill. Culottes +3",
+			feet="Plun. Pulaines +1",
+			neck="Asn. Gorget +2",
+			ear1="Odr Earring", ear2="Moonshade Earring",
+			ring1="Regal Ring", ring2="Epaminondas's Ring",
+			waist="Reiki Yotai",
+			back=Toutatis_WSD
+		},
+		["Dancing Edge"] = {
+			head="Adhemar Bonnet +1",
+			body="Pillager's Vest +3",
+			hands="Adhemar Wrist. +1",
+			legs="Pill. Culottes +3",
+			feet="Adhe. Gamashes +1",
+			neck="Asn. Gorget +2",
+			ear1="Cessance Earring", ear2="Moonshade Earring",
+			ring1="Epona's Ring", ring2="Chirich Ring +1",
+			waist="Reiki Yotai",
+			back=Toutatis_STP
+		},
+		["Mercy Stroke"] = {
+			head="Pill. Bonnet +3",
+			body="Pillager's Vest +3",
+			hands="Plun. Armlets +3",
+			legs="Pill. Culottes +3",
+			feet="Plun. Pulaines +1",
+			neck="Asn. Gorget +2",
+			ear1="Ishvara Earring", ear2="Moonshade Earring",
+			ring1="Regal Ring", ring2="Epaminondas's Ring",
+			waist="Sailfi Belt +1",
+			back=Toutatis_WSD
+		},
         -- Default fallback WS set
         ["Default"] = {
         head="Adhemar Bonnet +1",
@@ -199,32 +209,78 @@ end
         back=Toutatis_STP
         }
     }
+	-- Savage Blade Subjob Variants
+	sets.ws["Savage Blade"].WAR = set_combine(sets.ws["Savage Blade"], {
+		waist="Sailfi Belt +1", ear1="Sherida Earring"
+	})
+	sets.ws["Savage Blade"].DNC = set_combine(sets.ws["Savage Blade"], {
+		hands="Adhemar Wrist. +1"
+	})
+	sets.ws["Savage Blade"].DRG = set_combine(sets.ws["Savage Blade"], {
+		legs="Pill. Culottes +3", ring2="Chirich Ring +1"
+	})
+	-- Evisceration Subjob Variants
+	sets.ws["Evisceration"].DNC = set_combine(sets.ws["Evisceration"], {
+		hands="Mummu Wrists +2", waist="Reiki Yotai"
+	})
+	sets.ws["Evisceration"].WAR = set_combine(sets.ws["Evisceration"], {
+		ear1="Sherida Earring", waist="Sailfi Belt +1"
+	})
+
+	-- Aeolian Edge Subjob Variant
+	sets.ws["Aeolian Edge"].DNC = set_combine(sets.ws["Aeolian Edge"], {
+		ring2="Regal Ring"
+	})
 end
 
 function precast(spell)
     if sets.JA[spell.english] then
         equip(sets.JA[spell.english])
+
+        -- Add TH gear for relevant abilities
         if TH_mode and (spell.english == "Provoke" or spell.english == "Mug" or spell.english == "Feint") then
             equip(sets.TH)
+            add_to_chat(122, 'Treasure Hunter gear equipped.')
         end
-    elseif spell.action_type == 'Magic' then
-        equip(sets.precast.FC)
+
     elseif spell.type == 'WeaponSkill' then
-        if sets.ws[spell.english] then
-            if spell.english == "Aeolian Edge" then
-                equip({main=Shijo_WS, sub="Gleti's Knife"})
-            elseif spell.english == "Evisceration" then
-                equip({main=Tauret, sub="Gleti's Knife"})
-            elseif spell.english == "Exenterator" then
-                equip({main=Shijo_WS, sub="Gleti's Knife"})
-            else
-                equip({main=Shijo_WS, sub="Gleti's Knife"})
-            end
-            equip(sets.ws[spell.english])
-            check_day_weather_bonus(spell)
+        -- Weapon logic by WS
+        if spell.english == "Aeolian Edge" then
+            equip({main=Shijo_WS, sub="Gleti's Knife"})
+        elseif spell.english == "Evisceration" then
+            equip({main=Tauret, sub="Gleti's Knife"})
+        elseif spell.english == "Exenterator" then
+            equip({main=Shijo_WS, sub="Gleti's Knife"})
+        elseif spell.english == "Savage Blade" then
+            equip({main=Shijo_WS, sub="Gleti's Knife"})
+        elseif spell.english == "Mandalic Stab" then
+            equip({main=Tauret, sub="Gleti's Knife"})
+        elseif spell.english == "Dancing Edge" then
+            equip({main=Tauret, sub="Gleti's Knife"})
+        elseif spell.english == "Mercy Stroke" then
+            equip({main=Tauret, sub="Gleti's Knife"})
+        else
+            equip({main=Shijo_WS, sub="Gleti's Knife"}) -- fallback
         end
+
+        -- Equip subjob-specific variant of WS set (if it exists)
+        local base_set = sets.ws[spell.english] or sets.ws["Default"]
+        local subjob_set = base_set[player.sub_job]
+        if subjob_set then
+            equip(subjob_set)
+        else
+            equip(base_set)
+        end
+
+        check_day_weather_bonus(spell)
+        add_to_chat(122, 'WS Set equipped: ' .. spell.english)
+
+    elseif spell.action_type == 'Ranged Attack' then
+        -- (Optional future ranged logic here)
+        add_to_chat(122, 'Ranged Attack — no specific set.')
     end
 end
+
 function midcast(spell)
     if TH_mode and (spell.action_type == 'Ranged Attack' or spell.english == 'Mug' or spell.english == 'Provoke') then
         equip(sets.TH)
