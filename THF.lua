@@ -1,6 +1,17 @@
 -- THF.lua with HUD, Accuracy Toggle, TH Toggle, Buff Warnings, Capacity Ring Alert, Day/Weather WS Checks
 
 texts = require('texts')
+function get_current_main()
+    local equipment = windower.ffxi.get_items().equipment
+    local inventory = windower.ffxi.get_items()
+    local main_bag = equipment.main_bag
+    local main_index = equipment.main
+    local item = inventory[main_bag] and inventory[main_bag][main_index]
+    if item and item.id ~= 0 then
+        return res.items[item.id].name
+    end
+    return ""
+end
 
 th_hud = texts.new('TH: OFF', {
     pos = {x=1100, y=30},
@@ -12,19 +23,27 @@ th_hud = texts.new('TH: OFF', {
 TH_mode = true
 Acc_Index = 1
 Acc_Array = {"Default", "Acc", "AccMid", "AccHigh"}
+Shijo_WS = { name="Shijo", augments={'Path: C'} }
+Shijo_TP = { name="Shijo", augments={'Path: D'} }
+Tauret = "Tauret"
 
 function update_hud()
     if not th_hud then return end
 
-    local hud_text = ''
+    local weapon_text = 'Weapon: ' .. (Weapon_Mode or 'Unknown')
+    local acc_text = 'ACC: ' .. (Acc_Array and Acc_Array[Acc_Index] or 'N/A')
+    local dt_text = 'DT Mode: ' .. (DT_Modes and DT_Modes[DT_Mode_Index] or 'N/A')
+    local th_text = TH_mode and 'TH: ON' or 'TH: OFF'
 
-    if TH_mode then
-        hud_text = hud_text .. 'TH: ON'
-    else
-        hud_text = hud_text .. 'TH: OFF'
-    end
+    local hud_text = weapon_text .. ' | ' .. acc_text .. ' | ' .. dt_text .. ' | ' .. th_text
 
     hud_text = hud_text .. ' | ACC: ' .. (Acc_Array and Acc_Array[Acc_Index] or 'N/A')
+
+    if th_hud then
+        th_hud:text(hud_text)
+        th_hud:show()
+    end
+	
 
     if player and player.sub_job then
         hud_text = hud_text .. ' | SJ: ' .. player.sub_job
@@ -47,7 +66,27 @@ if #active_trusts > 0 then
     th_hud:show()
 end
 
+
+Weapon_Mode = "Shijo" -- default
+
+
 function self_command(command)
+    if command == 'toggleWeapon' then
+        if Weapon_Mode == "Tauret" then
+            Weapon_Mode = "Shijo"
+        elseif Weapon_Mode == "Shijo" then
+            Weapon_Mode = "Mandau"
+        else
+            Weapon_Mode = "Tauret"
+        end
+        add_to_chat(122, 'Weapon Mode: ' .. Weapon_Mode)
+        update_hud()
+	end
+    if command == 'toggleDT' then
+        DT_Mode_Index = DT_Mode_Index % #DT_Modes + 1
+        add_to_chat(122, 'Defense Mode: ' .. DT_Modes[DT_Mode_Index])
+        update_hud()
+	end
     if command == 'toggleAcc' then
         Acc_Index = Acc_Index + 1
         if Acc_Index > #Acc_Array then Acc_Index = 1 end
@@ -65,14 +104,15 @@ function self_command(command)
     end
 end
 
+
+Weapon_Mode = "Shijo" -- default
+
+
+DT_Modes = {"Normal", "DT", "EVA"}
+DT_Mode_Index = 1
 function get_sets()
     update_hud()
     sets = {}
-
-    Shijo_WS = { name="Shijo", augments={'Path: C'} }
-    Shijo_TP = { name="Shijo", augments={'Path: D'} }
-    Tauret = "Tauret"
-
     Toutatis_WSD = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%'} }
     Toutatis_STP = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Store TP+10','Damage taken-5%'} }
     Toutatis_Crit = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Critical hit rate +10%','Phys. dmg. taken-10%'} }
@@ -110,7 +150,43 @@ function get_sets()
 	sets.engaged.DRG = set_combine(sets.engaged, {
 		legs="Pill. Culottes +3"
 	})
-    sets.idle = {
+    
+    sets.eva = {
+        main=Shijo_TP,
+        sub="Gleti's Knife",
+        head="Turms Cap +1",
+        body="Pillager's Vest +3",
+        hands="Turms Mittens +1",
+        legs="Turms Subligar +1",
+        feet="Turms Leggings +1",
+        neck="Warder's Charm +1",
+        ring1="Defending Ring",
+        ring2="Moonlight Ring",
+        ear1="Suppanomimi",
+        waist="Flume Belt +1",
+        back=Toutatis_AGI
+    }
+
+sets.dt = {
+        main=Shijo_TP,
+        sub="Gleti's Knife",
+        head="Turms Cap +1",
+        body="Tu. Harness +1",
+        hands="Turms Mittens +1",
+        legs="Turms Subligar +1",
+        feet="Turms Leggings +1",
+        neck="Warder's Charm +1",
+        ring1="Defending Ring",
+        ring2="Moonlight Ring",
+        ear1="Suppanomimi",
+        waist="Carrier's Sash",
+        back=Toutatis_STP
+    }
+
+
+sets.idle = {
+    main=Shijo_TP,
+    sub="Gleti's Knife",
         head="Turms Cap +1", body="Tu. Harness +1", hands="Turms Mittens +1",
         legs="Turms Subligar +1", feet="Turms Leggings +1", neck="Asn. Gorget +2",
         ring1="Defending Ring", ring2="Moonlight Ring", ear1="Suppanomimi",
@@ -145,7 +221,7 @@ function get_sets()
             head="Adhemar Bonnet +1", body="Pillager's Vest +3", hands="Adhemar Wrist. +1",
             legs="Pill. Culottes +3", feet="Adhe. Gamashes +1", neck="Asn. Gorget +2",
             ear1="Cessance Earring", ear2="Suppanomimi", ring1="Epona's Ring", ring2="Chirich Ring +1",
-            waist="Reiki Yotai", back=Toutatis_AGI
+            waist="Sailfi Belt +1", back=Toutatis_AGI
         },
         ["Savage Blade"] = {
         head="Pill. Bonnet +3",
@@ -168,7 +244,7 @@ function get_sets()
 			neck="Asn. Gorget +2",
 			ear1="Odr Earring", ear2="Moonshade Earring",
 			ring1="Regal Ring", ring2="Epaminondas's Ring",
-			waist="Reiki Yotai",
+			waist="Sailfi Belt +1",
 			back=Toutatis_WSD
 		},
 		["Dancing Edge"] = {
@@ -180,7 +256,7 @@ function get_sets()
 			neck="Asn. Gorget +2",
 			ear1="Cessance Earring", ear2="Moonshade Earring",
 			ring1="Epona's Ring", ring2="Chirich Ring +1",
-			waist="Reiki Yotai",
+			waist="Sailfi Belt +1",
 			back=Toutatis_STP
 		},
 		["Mercy Stroke"] = {
@@ -205,7 +281,7 @@ function get_sets()
         neck="Asn. Gorget +2",
         ear1="Odr Earring", ear2="Moonshade Earring",
         ring1="Epona's Ring", ring2="Chirich Ring +1",
-        waist="Reiki Yotai",
+		waist="Sailfi Belt +1",
         back=Toutatis_STP
         }
     }
@@ -244,42 +320,55 @@ function precast(spell)
         end
 
     elseif spell.type == 'WeaponSkill' then
-        -- Weapon logic by WS
-        if spell.english == "Aeolian Edge" then
+        local tauret_ws = S{"Evisceration", "Mandalic Stab", "Dancing Edge"}
+        local shijo_ws  = S{"Savage Blade", "Exenterator", "Aeolian Edge", "Rudra's Storm"}
+
+        local current_main = get_current_main():lower()
+
+        elseif tauret_ws:contains(spell.english) then
+            if Weapon_Mode == "Tauret" and current_main ~= "tauret" then
+                cancel_spell()
+                add_to_chat(123, spell.english .. ' canceled: Equip Tauret manually first.')
+                return
+            end
+            equip({main=Tauret, sub="Gleti's Knife"})
+        elseif shijo_ws:contains(spell.english) then
+            if Weapon_Mode == "Shijo" and current_main ~= "shijo" then
+                cancel_spell()
+                add_to_chat(123, spell.english .. ' canceled: Equip Shijo manually first.')
+                return
+            end
             equip({main=Shijo_WS, sub="Gleti's Knife"})
-        elseif spell.english == "Evisceration" then
-            equip({main=Tauret, sub="Gleti's Knife"})
-        elseif spell.english == "Exenterator" then
-            equip({main=Shijo_WS, sub="Gleti's Knife"})
-        elseif spell.english == "Savage Blade" then
-            equip({main=Shijo_WS, sub="Gleti's Knife"})
-        elseif spell.english == "Mandalic Stab" then
-            equip({main=Tauret, sub="Gleti's Knife"})
-        elseif spell.english == "Dancing Edge" then
-            equip({main=Tauret, sub="Gleti's Knife"})
-        elseif spell.english == "Mercy Stroke" then
-            equip({main=Tauret, sub="Gleti's Knife"})
         else
-            equip({main=Shijo_WS, sub="Gleti's Knife"}) -- fallback
+            if Weapon_Mode == "Shijo" and current_main ~= "shijo" then
+                cancel_spell()
+                add_to_chat(123, spell.english .. ' canceled: Default WS fallback requires Shijo.')
+                return
+            end
+            equip({main=Shijo_WS, sub="Gleti's Knife"})
         end
 
-        -- Equip subjob-specific variant of WS set (if it exists)
-        local base_set = sets.ws[spell.english] or sets.ws["Default"]
-        local subjob_set = base_set[player.sub_job]
-        if subjob_set then
-            equip(subjob_set)
-        else
-            equip(base_set)
+        -- Dynamic belt logic for Exenterator
+        if spell.english == "Exenterator" then
+            if Acc_Array[Acc_Index] == "Acc" or Acc_Array[Acc_Index] == "AccMid" or Acc_Array[Acc_Index] == "AccHigh" then
+                equip({waist="Reiki Yotai"})
+            else
+                equip({waist="Sailfi Belt +1"})
+            end
         end
 
-        check_day_weather_bonus(spell)
+        -- Equip WS set and subjob override if available
+        local ws_set = sets.ws[spell.english] or sets.ws["Default"]
+        if ws_set[player.sub_job] then
+            equip(ws_set[player.sub_job])
+        else
+            equip(ws_set)
+        end
+
         add_to_chat(122, 'WS Set equipped: ' .. spell.english)
 
-    elseif spell.action_type == 'Ranged Attack' then
-        -- (Optional future ranged logic here)
-        add_to_chat(122, 'Ranged Attack — no specific set.')
-    end
 end
+
 
 function midcast(spell)
     if TH_mode and (spell.action_type == 'Ranged Attack' or spell.english == 'Mug' or spell.english == 'Provoke') then
@@ -290,30 +379,57 @@ end
 function aftercast(spell)
     if player.status == 'Engaged' then
         equip(sets.engaged[Acc_Array[Acc_Index]] or sets.engaged)
-        equip({main=Shijo_TP, sub="Gleti's Knife"})
+
+        if Weapon_Mode == "Shijo" then
+            equip({main=Shijo_TP, sub="Gleti's Knife"})
+        elseif Weapon_Mode == "Tauret" then
+            equip({main=Tauret, sub="Gleti's Knife"})
+        elseif Weapon_Mode == "Mandau" then
+            equip({main="Mandau", sub="Gleti's Knife"})
+        end
+
     else
-        equip(sets.idle)
+        if DT_Modes[DT_Mode_Index] == "DT" then
+            equip(sets.dt)
+        elseif DT_Modes[DT_Mode_Index] == "EVA" then
+            equip(sets.eva)
+        else
+            equip(sets.idle)
+        end
+
+        -- Keep sub weapon consistent in idle
+        equip({sub="Gleti's Knife"})
+
+        -- Apply defensive main hand if relevant
+        if Weapon_Mode == "Mandau" then
+            equip({main="Mandau"})
+        elseif Weapon_Mode == "Tauret" then
+            equip({main=Tauret})
+        elseif Weapon_Mode == "Shijo" then
+            equip({main=Shijo_TP})
+        end
+
         check_debuffs()
         check_capacity_ring()
     end
 end
+
 
 function status_change(new, old)
     if new == 'Engaged' then
         equip(sets.engaged[Acc_Array[Acc_Index]] or sets.engaged)
         equip({main=Shijo_TP, sub="Gleti's Knife"})
     elseif new == 'Idle' then
+        if DT_Modes[DT_Mode_Index] == "DT" then
+        equip(sets.dt)
+    elseif DT_Modes[DT_Mode_Index] == "EVA" then
+        equip(sets.eva)
+    else
         equip(sets.idle)
+    end
+equip({sub="Gleti\'s Knife"})
         check_debuffs()
         check_capacity_ring()
-    end
-end
-function check_day_weather_bonus(spell)
-    local spell_element = res.spells:with('en', spell.english).element
-    local weather = world.weather_element
-    local day = world.day_element
-    if spell_element and (spell_element == weather or spell_element == day) then
-        add_to_chat(8, '[Bonus] ' .. spell_element .. ' matches weather or day!')
     end
 end
 
