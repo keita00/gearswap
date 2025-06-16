@@ -26,7 +26,9 @@ Acc_Array = {"Default", "Acc", "AccMid", "AccHigh"}
 Shijo_WS = { name="Shijo", augments={'Path: C'} }
 Shijo_TP = { name="Shijo", augments={'Path: D'} }
 Tauret = "Tauret"
-
+tauret_ws = S{"Evisceration", "Mandalic Stab", "Dancing Edge"}
+shijo_ws  = S{"Savage Blade", "Exenterator", "Aeolian Edge", "Rudra's Storm"}
+	
 function update_hud()
     if not th_hud then return end
 
@@ -71,16 +73,19 @@ Weapon_Mode = "Shijo" -- default
 
 
 function self_command(command)
-    if command == 'toggleWeapon' then
-        if Weapon_Mode == "Tauret" then
-            Weapon_Mode = "Shijo"
-        elseif Weapon_Mode == "Shijo" then
-            Weapon_Mode = "Mandau"
-        else
-            Weapon_Mode = "Tauret"
-        end
-        add_to_chat(122, 'Weapon Mode: ' .. Weapon_Mode)
-        update_hud()
+	if command == 'toggleWeapon' then
+		if Weapon_Mode == "Tauret" then
+			Weapon_Mode = "Shijo"
+			equip({main=Shijo_TP, sub="Gleti's Knife"})
+		elseif Weapon_Mode == "Shijo" then
+			Weapon_Mode = "Mandau"
+			equip({main="Mandau", sub="Gleti's Knife"})
+		else
+			Weapon_Mode = "Tauret"
+			equip({main=Tauret, sub="Gleti's Knife"})
+		end
+		add_to_chat(122, 'Weapon Mode: ' .. Weapon_Mode)
+		update_hud()
 	end
     if command == 'toggleDT' then
         DT_Mode_Index = DT_Mode_Index % #DT_Modes + 1
@@ -192,9 +197,10 @@ sets.idle = {
         ring1="Defending Ring", ring2="Moonlight Ring", ear1="Suppanomimi",
         waist="Reiki Yotai", back=Toutatis_STP
     }
+	sets.WSDHands = { hands="Pill. Armlets +3" }
     sets.JA = {
-        ["Sneak Attack"] = { hands="Plun. Armlets +3" },
-        ["Trick Attack"] = { hands="Plun. Armlets +3" },
+        ["Sneak Attack"] = { hands="Pill. Armlets +3" },
+        ["Trick Attack"] = { hands="Pill. Armlets +3" },
         ["Feint"] = { legs="Plun. Culottes +3" },
         ["Bully"] = {}, ["Mug"] = {}, ["Accomplice"] = {}, ["Collaborator"] = {}
     }
@@ -206,7 +212,7 @@ sets.idle = {
     }
     sets.ws = {
         ["Aeolian Edge"] = {
-            head="Mummu Bonnet +2", body="Pillager's Vest +3", hands="Pill. Armlets +1",
+            head="Mummu Bonnet +2", body="Pillager's Vest +3", hands="Pill. Armlets +3",
             legs="Pill. Culottes +3", feet="Plun. Pulaines +1", neck="Asn. Gorget +2",
             ear1="Odr Earring", ear2="Moonshade Earring", ring1="Epona's Ring", ring2="Epaminondas's Ring",
             waist="Orpheus's Sash", back=Toutatis_INT
@@ -226,7 +232,7 @@ sets.idle = {
         ["Savage Blade"] = {
         head="Pill. Bonnet +3",
         body="Pillager's Vest +3",
-        hands="Plun. Armlets +3",
+        hands="Pill. Armlets +3",
         legs="Pill. Culottes +3",
         feet="Plun. Pulaines +1",
         neck="Asn. Gorget +2",
@@ -238,7 +244,7 @@ sets.idle = {
 		["Mandalic Stab"] = {
 			head="Pill. Bonnet +3",
 			body="Pillager's Vest +3",
-			hands="Plun. Armlets +3",
+			hands="Pill. Armlets +3",
 			legs="Pill. Culottes +3",
 			feet="Plun. Pulaines +1",
 			neck="Asn. Gorget +2",
@@ -262,7 +268,7 @@ sets.idle = {
 		["Mercy Stroke"] = {
 			head="Pill. Bonnet +3",
 			body="Pillager's Vest +3",
-			hands="Plun. Armlets +3",
+			hands="Pill. Armlets +3",
 			legs="Pill. Culottes +3",
 			feet="Plun. Pulaines +1",
 			neck="Asn. Gorget +2",
@@ -313,19 +319,15 @@ function precast(spell)
     if sets.JA[spell.english] then
         equip(sets.JA[spell.english])
 
-        -- Add TH gear for relevant abilities
         if TH_mode and (spell.english == "Provoke" or spell.english == "Mug" or spell.english == "Feint") then
             equip(sets.TH)
             add_to_chat(122, 'Treasure Hunter gear equipped.')
         end
 
     elseif spell.type == 'WeaponSkill' then
-        local tauret_ws = S{"Evisceration", "Mandalic Stab", "Dancing Edge"}
-        local shijo_ws  = S{"Savage Blade", "Exenterator", "Aeolian Edge", "Rudra's Storm"}
-
         local current_main = get_current_main():lower()
 
-        elseif tauret_ws:contains(spell.english) then
+        if tauret_ws:contains(spell.english) then
             if Weapon_Mode == "Tauret" and current_main ~= "tauret" then
                 cancel_spell()
                 add_to_chat(123, spell.english .. ' canceled: Equip Tauret manually first.')
@@ -348,7 +350,6 @@ function precast(spell)
             equip({main=Shijo_WS, sub="Gleti's Knife"})
         end
 
-        -- Dynamic belt logic for Exenterator
         if spell.english == "Exenterator" then
             if Acc_Array[Acc_Index] == "Acc" or Acc_Array[Acc_Index] == "AccMid" or Acc_Array[Acc_Index] == "AccHigh" then
                 equip({waist="Reiki Yotai"})
@@ -357,7 +358,6 @@ function precast(spell)
             end
         end
 
-        -- Equip WS set and subjob override if available
         local ws_set = sets.ws[spell.english] or sets.ws["Default"]
         if ws_set[player.sub_job] then
             equip(ws_set[player.sub_job])
@@ -366,9 +366,12 @@ function precast(spell)
         end
 
         add_to_chat(122, 'WS Set equipped: ' .. spell.english)
-
+        if buffactive["Sneak Attack"] or buffactive["Trick Attack"] then
+            equip(sets.WSDHands)
+            add_to_chat(122, 'WSD hands equipped for SA/TA.')
+        end
+    end
 end
-
 
 function midcast(spell)
     if TH_mode and (spell.action_type == 'Ranged Attack' or spell.english == 'Mug' or spell.english == 'Provoke') then
