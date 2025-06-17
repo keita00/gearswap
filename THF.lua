@@ -21,6 +21,7 @@ th_hud = texts.new('TH: OFF', {
 })
 
 TH_mode = true
+Movement_Mode = false
 Acc_Index = 1
 Acc_Array = {"Default", "Acc", "AccMid", "AccHigh"}
 Shijo_WS = { name="Shijo", augments={'Path: C'} }
@@ -36,10 +37,9 @@ function update_hud()
     local acc_text = 'ACC: ' .. (Acc_Array and Acc_Array[Acc_Index] or 'N/A')
     local dt_text = 'DT Mode: ' .. (DT_Modes and DT_Modes[DT_Mode_Index] or 'N/A')
     local th_text = TH_mode and 'TH: ON' or 'TH: OFF'
+	local move_text = Movement_Mode and 'MOV: ON' or 'MOV: OFF'
 
-    local hud_text = weapon_text .. ' | ' .. acc_text .. ' | ' .. dt_text .. ' | ' .. th_text
-
-    hud_text = hud_text .. ' | ACC: ' .. (Acc_Array and Acc_Array[Acc_Index] or 'N/A')
+	local hud_text = weapon_text .. ' | ' .. acc_text .. ' | ' .. dt_text .. ' | ' .. th_text .. ' | ' .. move_text
 
     if th_hud then
         th_hud:text(hud_text)
@@ -73,6 +73,12 @@ Weapon_Mode = "Shijo" -- default
 
 
 function self_command(command)
+	if command == 'toggleMovement' then
+		Movement_Mode = not Movement_Mode
+		add_to_chat(122, 'Movement Mode: ' .. (Movement_Mode and 'ON' or 'OFF'))
+		update_hud()
+		aftercast({}) -- force re-equip based on new state
+	end
 	if command == 'toggleWeapon' then
 		if Weapon_Mode == "Tauret" then
 			Weapon_Mode = "Shijo"
@@ -452,63 +458,85 @@ function midcast(spell)
 end
 
 function aftercast(spell)
-    if player.status == 'Engaged' then
-        equip(sets.engaged[Acc_Array[Acc_Index]] or sets.engaged)
-		
-        if Weapon_Mode == "Shijo" then
-            equip({main=Shijo_TP, sub="Gleti's Knife"})
-        elseif Weapon_Mode == "Tauret" then
-            equip({main=Tauret, sub="Gleti's Knife"})
-        elseif Weapon_Mode == "Mandau" then
-            equip({main="Mandau", sub="Gleti's Knife"})
-        end
+	if player.status == 'Engaged' then
+		local engageSet = sets.engaged[Acc_Array[Acc_Index]] or sets.engaged
+		equip(engageSet)
+
+		if Weapon_Mode == "Shijo" then
+			equip({main=Shijo_TP, sub="Gleti's Knife"})
+		elseif Weapon_Mode == "Tauret" then
+			equip({main=Tauret, sub="Gleti's Knife"})
+		elseif Weapon_Mode == "Mandau" then
+			equip({main="Mandau", sub="Gleti's Knife"})
+		end
+
 		equip({ammo="Aurgelmir Orb +1"})
-    else
-        if DT_Modes[DT_Mode_Index] == "DT" then
-            equip(sets.dt)
-        elseif DT_Modes[DT_Mode_Index] == "EVA" then
-            equip(sets.eva)
-        else
-            equip(sets.idle)
-        end
-		equip({ammo="Staunch Tathlum"})
+	else
+		local idleSet
+		if DT_Modes[DT_Mode_Index] == "DT" then
+			idleSet = sets.dt
+		elseif DT_Modes[DT_Mode_Index] == "EVA" then
+			idleSet = sets.eva
+		else
+			idleSet = sets.idle
+		end
+		equip(idleSet)
 
+		equip({sub="Gleti's Knife"})
 
-        -- Keep sub weapon consistent in idle
-        equip({sub="Gleti's Knife"})
+		if Weapon_Mode == "Mandau" then
+			equip({main="Mandau"})
+		elseif Weapon_Mode == "Tauret" then
+			equip({main=Tauret})
+		elseif Weapon_Mode == "Shijo" then
+			equip({main=Shijo_TP})
+		end
 
-        -- Apply defensive main hand if relevant
-        if Weapon_Mode == "Mandau" then
-            equip({main="Mandau"})
-        elseif Weapon_Mode == "Tauret" then
-            equip({main=Tauret})
-        elseif Weapon_Mode == "Shijo" then
-            equip({main=Shijo_TP})
-        end
+		check_debuffs()
+		check_capacity_ring()
+	end
 
-        check_debuffs()
-        check_capacity_ring()
-    end
+	if Movement_Mode then
+		add_to_chat(122, 'Movement mode active: equipping Pill. Poulaines +3.')
+		equip({feet="Pill. Poulaines +3"})
+	end
+
 end
 
 
 function status_change(new, old)
-    if new == 'Engaged' then
-        equip(sets.engaged[Acc_Array[Acc_Index]] or sets.engaged)
-        equip({main=Shijo_TP, sub="Gleti's Knife"})
-    elseif new == 'Idle' then
-        if DT_Modes[DT_Mode_Index] == "DT" then
-        equip(sets.dt)
-    elseif DT_Modes[DT_Mode_Index] == "EVA" then
-        equip(sets.eva)
-    else
-        equip(sets.idle)
-    end
-equip({sub="Gleti\'s Knife"})
-        check_debuffs()
-        check_capacity_ring()
-    end
+	if new == 'Engaged' then
+		local engageSet = sets.engaged[Acc_Array[Acc_Index]] or sets.engaged
+		equip(engageSet)
+		equip({main=Shijo_TP, sub="Gleti's Knife"})
+	elseif new == 'Idle' then
+		if DT_Modes[DT_Mode_Index] == "DT" then
+			equip(sets.dt)
+		elseif DT_Modes[DT_Mode_Index] == "EVA" then
+			equip(sets.eva)
+		else
+			equip(sets.idle)
+		end
+		equip({sub="Gleti's Knife"})
+
+		if Weapon_Mode == "Mandau" then
+			equip({main="Mandau"})
+		elseif Weapon_Mode == "Tauret" then
+			equip({main=Tauret})
+		elseif Weapon_Mode == "Shijo" then
+			equip({main=Shijo_TP})
+		end
+
+		check_debuffs()
+		check_capacity_ring()
+	end
+
+	-- ✅ Final override: Movement mode
+	if Movement_Mode then
+		equip({feet="Pill. Poulaines +3"})
+	end
 end
+
 
 function check_capacity_ring()
     local ring = windower.ffxi.get_items().equipment.ring1
