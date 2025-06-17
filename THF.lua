@@ -128,16 +128,16 @@ function get_sets()
         head="Adhemar Bonnet +1", body="Pillager's Vest +3", hands="Adhemar Wrist. +1",
         legs="Pill. Culottes +3", feet="Adhe. Gamashes +1", neck="Asn. Gorget +2",
         ear1="Cessance Earring", ear2="Suppanomimi", ring1="Epona's Ring", ring2="Chirich Ring +1",
-        waist="Reiki Yotai", back=Toutatis_STP
+        waist="Reiki Yotai", ammo="Aurgelmir Orb +1", back=Toutatis_STP
     }
     sets.engaged.Acc = set_combine(sets.engaged, {
-        head="Mummu Bonnet +2", hands="Mummu Wrists +2", legs="Mummu Kecks +1", feet="Mummu Gamash. +2", ring2="Regal Ring"
+        head="Mummu Bonnet +2", hands="Mummu Wrists +2", legs="Mummu Kecks +1", feet="Mummu Gamash. +2", ring2="Regal Ring", ammo="Aurgelmir Orb +1"
     })
     sets.engaged.AccMid = set_combine(sets.engaged.Acc, {
-        neck="Asn. Gorget +2", ear2="Telos Earring"
+        neck="Asn. Gorget +2", ear2="Telos Earring", ammo="Aurgelmir Orb +1"
     })
     sets.engaged.AccHigh = set_combine(sets.engaged.AccMid, {
-        ring1="Chirich Ring +1", waist="Kentarch Belt +1"
+        ring1="Chirich Ring +1", waist="Kentarch Belt +1", ammo="Aurgelmir Orb +1"
     })
 	-- Subjob-specific accuracy overrides
 	sets.engaged.DNC = set_combine(sets.engaged, {
@@ -190,56 +190,95 @@ sets.dt = {
 
 
 sets.idle = {
-    main=Shijo_TP,
-    sub="Gleti's Knife",
-        head="Turms Cap +1", body="Tu. Harness +1", hands="Turms Mittens +1",
-        legs="Turms Subligar +1", feet="Turms Leggings +1", neck="Asn. Gorget +2",
-        ring1="Defending Ring", ring2="Moonlight Ring", ear1="Suppanomimi",
-        waist="Reiki Yotai", back=Toutatis_STP
+		main=Shijo_TP,
+		sub="Gleti's Knife",
+		head="Turms Cap +1",
+		body="Tu. Harness +1",
+		hands="Turms Mittens +1",
+		legs="Turms Subligar +1",
+		feet="Turms Leggings +1",
+		neck="Asn. Gorget +2",
+		ring1="Defending Ring",
+		ring2="Moonlight Ring",
+		ear1="Suppanomimi",
+		waist="Reiki Yotai",
+		back=Toutatis_STP
     }
+	
 	sets.WSDHands = { hands="Pill. Armlets +3" }
+	sets.WSDFeet = { feet="Pill. Poulaines +3" }
+
     sets.JA = {
-        ["Sneak Attack"] = { hands="Pill. Armlets +3" },
-        ["Trick Attack"] = { hands="Pill. Armlets +3" },
+		["Sneak Attack"] = { hands="Pill. Armlets +3", feet="Pill. Poulaines +3" },
+		["Trick Attack"] = { hands="Pill. Armlets +3", feet="Pill. Poulaines +3" },
         ["Feint"] = { legs="Plun. Culottes +3" },
-        ["Bully"] = {}, ["Mug"] = {}, ["Accomplice"] = {}, ["Collaborator"] = {}
+        ["Bully"] = {},
+		["Mug"] = {},
+		["Accomplice"] = {},
+		["Collaborator"] = {},
+		["Flee"] = { feet="Pill. Poulaines +3" }
     }
     sets.TH = {
         head="Wh. Rarab Cap +1",
         hands="Plun. Armlets +3",
-        waist="Chaac Belt",
-        feet="Skulker's Poulaines +3"
     }
     sets.ws = {
         ["Aeolian Edge"] = {
-            head="Mummu Bonnet +2", body="Pillager's Vest +3", hands="Pill. Armlets +3",
-            legs="Pill. Culottes +3", feet="Plun. Pulaines +1", neck="Asn. Gorget +2",
-            ear1="Odr Earring", ear2="Moonshade Earring", ring1="Epona's Ring", ring2="Epaminondas's Ring",
-            waist="Orpheus's Sash", back=Toutatis_INT
+            head="Mummu Bonnet +2",
+			body="Pillager's Vest +3",
+			hands="Pill. Armlets +3",
+            legs="Pill. Culottes +3",
+			feet="Plun. Pulaines +1",
+			neck="Asn. Gorget +2",
+            ear1="Odr Earring",
+			ear2="Moonshade Earring",
+			ring1="Epona's Ring",
+			ring2="Epaminondas's Ring",
+            waist="Orpheus's Sash",
+			back=Toutatis_INT
         },
         ["Evisceration"] = {
-            head="Mummu Bonnet +2", hands="Mummu Wrists +2", legs="Mummu Kecks +1",
-            body="Pillager's Vest +3", feet="Plun. Pulaines +1", neck="Asn. Gorget +2",
-            ear1="Odr Earring", ear2="Moonshade Earring", ring1="Epona's Ring", ring2="Epaminondas's Ring",
-            waist="Reiki Yotai", back=Toutatis_Crit
+			ammo="Yetshila +1",
+            head="Mummu Bonnet +2",
+			hands="Mummu Wrists +2",
+			legs="Mummu Kecks +1",
+            body="Pillager's Vest +3",
+			feet="Plun. Pulaines +1",
+			neck="Asn. Gorget +2",
+            ear1="Odr Earring",
+			ear2="Moonshade Earring",
+			ring1="Epona's Ring",
+			ring2="Epaminondas's Ring",
+            waist="Reiki Yotai",
+			back=Toutatis_Crit
         },
         ["Exenterator"] = {
-            head="Adhemar Bonnet +1", body="Pillager's Vest +3", hands="Adhemar Wrist. +1",
-            legs="Pill. Culottes +3", feet="Adhe. Gamashes +1", neck="Asn. Gorget +2",
-            ear1="Cessance Earring", ear2="Suppanomimi", ring1="Epona's Ring", ring2="Chirich Ring +1",
-            waist="Sailfi Belt +1", back=Toutatis_AGI
+            head="Adhemar Bonnet +1",
+			body="Pillager's Vest +3",
+			hands="Adhemar Wrist. +1",
+            legs="Pill. Culottes +3",
+			feet="Adhe. Gamashes +1",
+			neck="Asn. Gorget +2",
+            ear1="Cessance Earring",
+			ear2="Suppanomimi",
+			ring1="Epona's Ring",
+			ring2="Chirich Ring +1",
+            waist="Sailfi Belt +1",
+			back=Toutatis_AGI
         },
         ["Savage Blade"] = {
-        head="Pill. Bonnet +3",
-        body="Pillager's Vest +3",
-        hands="Pill. Armlets +3",
-        legs="Pill. Culottes +3",
-        feet="Plun. Pulaines +1",
-        neck="Asn. Gorget +2",
-        ear1="Ishvara Earring", ear2="Moonshade Earring",
-        ring1="Epaminondas's Ring", ring2="Regal Ring",
-        waist="Sailfi Belt +1",
-        back=Toutatis_WSD
+			head="Pill. Bonnet +3",
+			body="Pillager's Vest +3",
+			hands="Pill. Armlets +3",
+			legs="Pill. Culottes +3",
+			feet="Plun. Pulaines +1",
+			neck="Asn. Gorget +2",
+			ear1="Ishvara Earring",
+			ear2="Moonshade Earring",
+			ring1="Epaminondas's Ring",
+			ring2="Regal Ring",
+			waist="Sailfi Belt +1",
+			back=Toutatis_WSD
         },
 		["Mandalic Stab"] = {
 			head="Pill. Bonnet +3",
@@ -248,8 +287,10 @@ sets.idle = {
 			legs="Pill. Culottes +3",
 			feet="Plun. Pulaines +1",
 			neck="Asn. Gorget +2",
-			ear1="Odr Earring", ear2="Moonshade Earring",
-			ring1="Regal Ring", ring2="Epaminondas's Ring",
+			ear1="Odr Earring",
+			ear2="Moonshade Earring",
+			ring1="Regal Ring",
+			ring2="Epaminondas's Ring",
 			waist="Sailfi Belt +1",
 			back=Toutatis_WSD
 		},
@@ -272,8 +313,10 @@ sets.idle = {
 			legs="Pill. Culottes +3",
 			feet="Plun. Pulaines +1",
 			neck="Asn. Gorget +2",
-			ear1="Ishvara Earring", ear2="Moonshade Earring",
-			ring1="Regal Ring", ring2="Epaminondas's Ring",
+			ear1="Ishvara Earring",
+			ear2="Moonshade Earring",
+			ring1="Regal Ring",
+			ring2="Epaminondas's Ring",
 			waist="Sailfi Belt +1",
 			back=Toutatis_WSD
 		},
@@ -285,8 +328,10 @@ sets.idle = {
         legs="Pill. Culottes +3",
         feet="Adhe. Gamashes +1",
         neck="Asn. Gorget +2",
-        ear1="Odr Earring", ear2="Moonshade Earring",
-        ring1="Epona's Ring", ring2="Chirich Ring +1",
+        ear1="Odr Earring",
+		ear2="Moonshade Earring",
+        ring1="Epona's Ring",
+		ring2="Chirich Ring +1",
 		waist="Sailfi Belt +1",
         back=Toutatis_STP
         }
@@ -321,6 +366,7 @@ function precast(spell)
 
         if TH_mode and (spell.english == "Provoke" or spell.english == "Mug" or spell.english == "Feint") then
             equip(sets.TH)
+			equip({ammo="Per. Lucky Egg"})
             add_to_chat(122, 'Treasure Hunter gear equipped.')
         end
 
@@ -350,13 +396,33 @@ function precast(spell)
             equip({main=Shijo_WS, sub="Gleti's Knife"})
         end
 
-        if spell.english == "Exenterator" then
-            if Acc_Array[Acc_Index] == "Acc" or Acc_Array[Acc_Index] == "AccMid" or Acc_Array[Acc_Index] == "AccHigh" then
-                equip({waist="Reiki Yotai"})
-            else
-                equip({waist="Sailfi Belt +1"})
-            end
-        end
+		-- Dynamic adjustments for all Weapon Skills
+		if spell.type == "WeaponSkill" then
+			local accMode = Acc_Array[Acc_Index]
+
+			-- Default ammo per WS type
+			if spell.english == "Evisceration" or spell.english == "Rudra's Storm" then
+				equip({ammo="Yetshila +1"})
+			elseif spell.english == "Dancing Edge" then
+				if accMode == "AccHigh" then
+					equip({ammo="Aurgelmir Orb +1"})
+				else
+					equip({ammo="Yetshila +1"})
+				end
+			else
+				equip({ammo="Aurgelmir Orb +1"})
+			end
+
+			-- Dynamic waist if applicable
+			if spell.english == "Exenterator" or spell.english == "Dancing Edge" then
+				if accMode == "Acc" or accMode == "AccMid" or accMode == "AccHigh" then
+					equip({waist="Reiki Yotai"})
+				else
+					equip({waist="Sailfi Belt +1"})
+				end
+			end
+		end
+
 
         local ws_set = sets.ws[spell.english] or sets.ws["Default"]
         if ws_set[player.sub_job] then
@@ -367,22 +433,28 @@ function precast(spell)
 
         add_to_chat(122, 'WS Set equipped: ' .. spell.english)
         if buffactive["Sneak Attack"] or buffactive["Trick Attack"] then
-            equip(sets.WSDHands)
-            add_to_chat(122, 'WSD hands equipped for SA/TA.')
+			equip(sets.WSDHands)
+			equip(sets.WSDFeet)
+			add_to_chat(122, 'WSD hands/feet equipped for SA/TA.')
         end
+		if spell.english == "Flee" then
+			add_to_chat(122, "Flee activated: Duration boosted with Pillager's Poulaines +3.")
+		end
     end
 end
 
 function midcast(spell)
     if TH_mode and (spell.action_type == 'Ranged Attack' or spell.english == 'Mug' or spell.english == 'Provoke') then
         equip(sets.TH)
+		equip({ammo="Per. Lucky Egg"})
+		add_to_chat(122, 'TH Midcast: Equipping Lucky Egg.')
     end
 end
 
 function aftercast(spell)
     if player.status == 'Engaged' then
         equip(sets.engaged[Acc_Array[Acc_Index]] or sets.engaged)
-
+		
         if Weapon_Mode == "Shijo" then
             equip({main=Shijo_TP, sub="Gleti's Knife"})
         elseif Weapon_Mode == "Tauret" then
@@ -390,7 +462,7 @@ function aftercast(spell)
         elseif Weapon_Mode == "Mandau" then
             equip({main="Mandau", sub="Gleti's Knife"})
         end
-
+		equip({ammo="Aurgelmir Orb +1"})
     else
         if DT_Modes[DT_Mode_Index] == "DT" then
             equip(sets.dt)
@@ -399,6 +471,8 @@ function aftercast(spell)
         else
             equip(sets.idle)
         end
+		equip({ammo="Staunch Tathlum"})
+
 
         -- Keep sub weapon consistent in idle
         equip({sub="Gleti's Knife"})
