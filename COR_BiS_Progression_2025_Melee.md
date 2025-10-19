@@ -1,210 +1,110 @@
-# Corsair (COR) Gear Progression Roadmap – Retail FFXI (2025 Updates with Limbus)
+# ⚓ Corsair Gear Progression 2025 (From THF Baseline → Full Endgame)
 
-Updated for June & September 2025 version updates, including Limbus reforging (+4) and current BiS sets.
-All item/set links go to BG‑Wiki for convenience.
-
----
-
-## 🎯 Early Stage (Foundation, iLvl ~119)
-
-**Goal:** Establish reliable ranged and TP sets via easy content (Ambuscade, Omen).  
-Focus on entry gear that will transition smoothly into AF/Relic sets.
-
-### Key Gear
-- **Weapon (Ranged):** [Anarchy +2](https://www.bg-wiki.com/ffxi/Anarchy) → later **[Fomalhaut](https://www.bg-wiki.com/ffxi/Fomalhaut)**.  
-- **Armor:** [Meghanada +2 set](https://www.bg-wiki.com/ffxi/Meghanada_Cuirie) (ranged offense), [Malignance set](https://www.bg-wiki.com/ffxi/Malignance_Set) (hybrid TP/DT).  
-- **Accessories:** [Lanun Tricorne +3](https://www.bg-wiki.com/ffxi/Lanun_Tricorne_%2B3), [Iskur Gorget](https://www.bg-wiki.com/ffxi/Iskur_Gorget), [Telos Earring](https://www.bg-wiki.com/ffxi/Telos_Earring), [Regal Ring](https://www.bg-wiki.com/ffxi/Regal_Ring), [Camulus’s Mantle](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle).
-
-### Content
-- Ambuscade (Hallmarks)  
-- Omen for cards → AF +1  
-- Sparks/Unity for starter gun/ammo  
+You already have a strong melee foundation from THF.  
+This roadmap shows every Corsair set slot with **current gear**, **next upgrades**, and **BiS** options (with BG-Wiki links).  
+All ✅ items are already in your THF inventory.
 
 ---
 
-## 🧩 Mid Stage (AF / Relic +3)
+## 💤 Idle / Defensive Sets
 
-**Goal:** Obtain job‑specific sets and refine roles (ranged DPS + support).
-
-### Artifact (Lanun +3)
-- [Lanun Tricorne +3](https://www.bg-wiki.com/ffxi/Lanun_Tricorne_%2B3) – Roll potency  
-- [Lanun Frac +3](https://www.bg-wiki.com/ffxi/Lanun_Frac_%2B3) – Quick Draw dmg  
-- [Lanun Culottes +3](https://www.bg-wiki.com/ffxi/Lanun_Culottes_%2B3) – Quick Draw recast  
-- [Lanun Bottes +3](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B3) – Snapshot  
-
-### Relic (Commodore +3)
-- [Commodore Tricorne +3](https://www.bg-wiki.com/ffxi/Commodore_Tricorne_%2B3) – Leaden Salute bonus  
-- [Commodore Frac +3](https://www.bg-wiki.com/ffxi/Commodore_Frac_%2B3) – Wild Card+  
-- [Commodore Gants +3](https://www.bg-wiki.com/ffxi/Commodore_Gants_%2B3) – WS boost  
-- [Commodore Trews +3](https://www.bg-wiki.com/ffxi/Commodore_Trews_%2B3)
-
-### Weapon
-- [Fomalhaut](https://www.bg-wiki.com/ffxi/Fomalhaut) (Empy)  
-- [Naegling](https://www.bg-wiki.com/ffxi/Naegling) for melee WS support  
-
-### Content
-- Dynamis‑D → Relic +3  
-- Omen → AF +3  
-- Sortie → accessories (e.g., [Commodore Charm +2](https://www.bg-wiki.com/ffxi/Commodore_Charm_%2B2))
+| Slot | You Own | Phase 1 (Entry) | Phase 2 (Midgame) | Phase 3 (BiS / Endgame) |
+|------|----------|----------------|------------------|----------------|
+| **Main** | ✅ [Tauret](https://www.bg-wiki.com/ffxi/Tauret) | — | [Naegling](https://www.bg-wiki.com/ffxi/Naegling) | [Rostam Path C](https://www.bg-wiki.com/ffxi/Rostam) |
+| **Sub** | ✅ [Gleti’s Knife](https://www.bg-wiki.com/ffxi/Gleti%27s_Knife) | — | [Crepuscular Knife](https://www.bg-wiki.com/ffxi/Crepuscular_Knife) | [Rostam Path D](https://www.bg-wiki.com/ffxi/Rostam) |
+| **Head** | ✅ [Adhemar Bonnet +1](https://www.bg-wiki.com/ffxi/Adhemar_Bonnet_%2B1) | [Meghanada Visor +2](https://www.bg-wiki.com/ffxi/Meghanada_Visor_%2B2) | [Malignance Chapeau](https://www.bg-wiki.com/ffxi/Malignance_Chapeau) | [Nyame Helm](https://www.bg-wiki.com/ffxi/Nyame_Helm) |
+| **Body** | — | [Meghanada Cuirie +2](https://www.bg-wiki.com/ffxi/Meghanada_Cuirie_%2B2) | [Malignance Tabard](https://www.bg-wiki.com/ffxi/Malignance_Tabard) | [Nyame Mail](https://www.bg-wiki.com/ffxi/Nyame_Mail) |
+| **Hands** | ✅ [Adhemar Wrist. +1](https://www.bg-wiki.com/ffxi/Adhemar_Wrist._%2B1) | [Meghanada Gloves +2](https://www.bg-wiki.com/ffxi/Meghanada_Gloves_%2B2) | [Malignance Gloves](https://www.bg-wiki.com/ffxi/Malignance_Gloves) | [Nyame Gauntlets](https://www.bg-wiki.com/ffxi/Nyame_Gauntlets) |
+| **Legs** | ✅ [Mummu Kecks +1](https://www.bg-wiki.com/ffxi/Mummu_Kecks_%2B1) | [Meghanada Chausses +2](https://www.bg-wiki.com/ffxi/Meghanada_Chausses_%2B2) | [Malignance Tights](https://www.bg-wiki.com/ffxi/Malignance_Tights) | [Nyame Flanchard](https://www.bg-wiki.com/ffxi/Nyame_Flanchard) |
+| **Feet** | ✅ [Adhe. Gamashes +1](https://www.bg-wiki.com/ffxi/Adhe._Gamashes_%2B1) | [Meghanada Jambeaux +2](https://www.bg-wiki.com/ffxi/Meghanada_Jambeaux_%2B2) | [Malignance Boots](https://www.bg-wiki.com/ffxi/Malignance_Boots) | [Nyame Sollerets](https://www.bg-wiki.com/ffxi/Nyame_Sollerets) |
+| **Neck** | ✅ [Warder’s Charm +1](https://www.bg-wiki.com/ffxi/Warder%27s_Charm_%2B1) | [Iskur Gorget](https://www.bg-wiki.com/ffxi/Iskur_Gorget) | [Regal Necklace](https://www.bg-wiki.com/ffxi/Regal_Necklace) | [Fotia Gorget](https://www.bg-wiki.com/ffxi/Fotia_Gorget) |
+| **Ears** | ✅ [Suppanomimi](https://www.bg-wiki.com/ffxi/Suppanomimi), ✅ [Telos Earring](https://www.bg-wiki.com/ffxi/Telos_Earring) | [Crepuscular Earring](https://www.bg-wiki.com/ffxi/Crepuscular_Earring) | [Sherida Earring](https://www.bg-wiki.com/ffxi/Sherida_Earring) | [Moonshade Earring](https://www.bg-wiki.com/ffxi/Moonshade_Earring) |
+| **Rings** | ✅ [Defending Ring](https://www.bg-wiki.com/ffxi/Defending_Ring), ✅ [Moonlight Ring](https://www.bg-wiki.com/ffxi/Moonlight_Ring) | [Epona’s Ring](https://www.bg-wiki.com/ffxi/Epona%27s_Ring), [Chirich Ring +1](https://www.bg-wiki.com/ffxi/Chirich_Ring_%2B1) | [Regal Ring](https://www.bg-wiki.com/ffxi/Regal_Ring) | [Epaminondas’s Ring](https://www.bg-wiki.com/ffxi/Epaminondas%27s_Ring) |
+| **Waist** | ✅ [Flume Belt +1](https://www.bg-wiki.com/ffxi/Flume_Belt_%2B1) | [Sailfi Belt +1](https://www.bg-wiki.com/ffxi/Sailfi_Belt_%2B1) | [Fotia Belt](https://www.bg-wiki.com/ffxi/Fotia_Belt) | [Orpheus’s Sash](https://www.bg-wiki.com/ffxi/Orpheus%27s_Sash) |
+| **Back** | — | Ambuscade Cape | [Camulus’s Mantle (DT)](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle) | 4× Camulus’s Mantles (TP / Leaden / Last Stand / Roll) |
 
 ---
 
-## 🚀 Advanced Stage (End‑game, +4 / Limbus / BiS)
+## ⚔️ Engaged (Melee TP)
 
-**Goal:** Utilize new Limbus (Temenos/Apollyon) to forge AF/Relic +4 and complete BiS sets.  
-June & Sept 2025 updates allow +4 reforge via “Units.”
-
-### Core Sets
-- [Lanun Set +4](https://www.bg-wiki.com/ffxi/Lanun_Set) – Roll/utility power  
-- [Commodore Set +4](https://www.bg-wiki.com/ffxi/Commodore_Set) – Leaden Salute and WS  
-- [Chasseur Set +3](https://www.bg-wiki.com/ffxi/Chasseur_Set) – Snapshot/QD support  
-- [Nyame Set](https://www.bg-wiki.com/ffxi/Nyame_Set) – Physical WS/DT hybrid  
-
-### Weapon
-- [Death Penalty](https://www.bg-wiki.com/ffxi/Death_Penalty) (Mythic) – Leaden Salute powerhouse  
-- [Fomalhaut](https://www.bg-wiki.com/ffxi/Fomalhaut) – general‑use  
-- [Naegling](https://www.bg-wiki.com/ffxi/Naegling) – Savage Blade  
-
-### Augments
-- **Camulus’s Mantle variants:**  
-  - Ranged TP: AGI+30 / R.Acc+20 / R.Att+20 / Store TP+10  
-  - Leaden Salute: AGI+30 / MAB+20 / Magic Dmg+20 / WS Dmg+10%  
-  - Last Stand: AGI+30 / R.Att+20 / WS Dmg+10%  
-  - Roll Support: CHR+30 / DT‑5% / Fast Cast+10  
+| Slot | You Own | Phase 1 | Phase 2 | Phase 3 |
+|------|----------|---------|---------|---------|
+| **Main/Sub** | ✅ Tauret + Gleti’s | [Naegling + Gleti’s](https://www.bg-wiki.com/ffxi/Naegling) | [Rostam C + D](https://www.bg-wiki.com/ffxi/Rostam) | same |
+| **Head** | ✅ Adhemar +1 | same | [Malignance Chapeau](https://www.bg-wiki.com/ffxi/Malignance_Chapeau) | [Nyame Helm](https://www.bg-wiki.com/ffxi/Nyame_Helm) |
+| **Body** | — | [Meghanada Cuirie +2](https://www.bg-wiki.com/ffxi/Meghanada_Cuirie_%2B2) | [Malignance Tabard](https://www.bg-wiki.com/ffxi/Malignance_Tabard) | [Nyame Mail](https://www.bg-wiki.com/ffxi/Nyame_Mail) |
+| **Hands** | ✅ Adhemar +1 | same | [Malignance Gloves](https://www.bg-wiki.com/ffxi/Malignance_Gloves) | [Nyame Gauntlets](https://www.bg-wiki.com/ffxi/Nyame_Gauntlets) |
+| **Legs** | ✅ Mummu +1 | [Meghanada +2](https://www.bg-wiki.com/ffxi/Meghanada_Chausses_%2B2) | [Malignance Tights](https://www.bg-wiki.com/ffxi/Malignance_Tights) | [Nyame Flanchard](https://www.bg-wiki.com/ffxi/Nyame_Flanchard) |
+| **Feet** | ✅ Adhe. +1 | [Meghanada +2](https://www.bg-wiki.com/ffxi/Meghanada_Jambeaux_%2B2) | [Malignance Boots](https://www.bg-wiki.com/ffxi/Malignance_Boots) | [Nyame Sollerets](https://www.bg-wiki.com/ffxi/Nyame_Sollerets) |
 
 ---
 
-# 💎 Best‑in‑Slot Sets (2025)
+## 🎯 Ranged (Gun)
 
-## ⚔️ Ranged TP / AutoRA
-| Slot | Item |
-|------|------|
-| Head | [Malignance Chapeau](https://www.bg-wiki.com/ffxi/Malignance_Chapeau) |
-| Body | [Malignance Tabard](https://www.bg-wiki.com/ffxi/Malignance_Tabard) |
-| Hands | [Malignance Gloves](https://www.bg-wiki.com/ffxi/Malignance_Gloves) |
-| Legs | [Malignance Tights](https://www.bg-wiki.com/ffxi/Malignance_Tights) |
-| Feet | [Malignance Boots](https://www.bg-wiki.com/ffxi/Malignance_Boots) |
-| Neck | [Iskur Gorget](https://www.bg-wiki.com/ffxi/Iskur_Gorget) |
-| Ears | [Telos Earring](https://www.bg-wiki.com/ffxi/Telos_Earring), [Crepuscular Earring](https://www.bg-wiki.com/ffxi/Crepuscular_Earring) |
-| Rings | [Ilabrat Ring](https://www.bg-wiki.com/ffxi/Ilabrat_Ring), [Regal Ring](https://www.bg-wiki.com/ffxi/Regal_Ring) |
-| Back | Camulus’s Mantle (Ranged TP) |
-| Waist | [Kentarch Belt +1](https://www.bg-wiki.com/ffxi/Kentarch_Belt_%2B1) |
+| Phase | Target | BG-Wiki |
+|--------|---------|---------|
+| **Phase 1** | [Anarchy +2](https://www.bg-wiki.com/ffxi/Anarchy_%2B2) | Ambuscade |
+| **Phase 2** | [Fomalhaut](https://www.bg-wiki.com/ffxi/Fomalhaut) | Aeonic |
+| **Phase 3** | [Death Penalty (119 III)](https://www.bg-wiki.com/ffxi/Death_Penalty) | Mythic |
+| **Bullets** | [Chrono → Devastating](https://www.bg-wiki.com/ffxi/Devastating_Bullet) | — |
 
-## 🔮 Leaden Salute (WS – Magic Ranged)
-| Slot | Item |
-|------|------|
-| Weapon | Death Penalty / Fomalhaut |
-| Head | [Pixie Hairpin +1](https://www.bg-wiki.com/ffxi/Pixie_Hairpin_%2B1) |
-| Body | [Lanun Frac +3](https://www.bg-wiki.com/ffxi/Lanun_Frac_%2B3) |
-| Hands | [Carmine Fin. Ga. +1](https://www.bg-wiki.com/ffxi/Carmine_Finger_Gauntlets_%2B1) |
-| Legs | [Chasseur’s Culottes +3](https://www.bg-wiki.com/ffxi/Chasseur%27s_Culottes_%2B3) |
-| Feet | [Lanun Bottes +3](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B3) |
-| Neck | [Baetyl Pendant](https://www.bg-wiki.com/ffxi/Baetyl_Pendant) |
-| Ears | [Friomisi Earring](https://www.bg-wiki.com/ffxi/Friomisi_Earring), [Crematio Earring](https://www.bg-wiki.com/ffxi/Crematio_Earring) |
-| Rings | [Archon Ring](https://www.bg-wiki.com/ffxi/Archon_Ring), [Dingir Ring](https://www.bg-wiki.com/ffxi/Dingir_Ring) |
-| Back | Camulus’s Mantle (MAB variant) |
-| Waist | [Orpheus’s Sash](https://www.bg-wiki.com/ffxi/Orpheus%27s_Sash) |
-
-## 💥 Last Stand (Physical Ranged WS)
-| Slot | Item |
-|------|------|
-| Weapon | Fomalhaut |
-| Head | [Nyame Helm](https://www.bg-wiki.com/ffxi/Nyame_Helm) |
-| Body | [Nyame Mail](https://www.bg-wiki.com/ffxi/Nyame_Mail) |
-| Hands | [Nyame Gauntlets](https://www.bg-wiki.com/ffxi/Nyame_Gauntlets) |
-| Legs | [Nyame Flanchard](https://www.bg-wiki.com/ffxi/Nyame_Flanchard) |
-| Feet | [Nyame Sollerets](https://www.bg-wiki.com/ffxi/Nyame_Sollerets) |
-| Neck | [Fotia Gorget](https://www.bg-wiki.com/ffxi/Fotia_Gorget) |
-| Waist | [Fotia Belt](https://www.bg-wiki.com/ffxi/Fotia_Belt) |
-| Ears | [Ishvara Earring](https://www.bg-wiki.com/ffxi/Ishvara_Earring), [Telos Earring](https://www.bg-wiki.com/ffxi/Telos_Earring) |
-| Rings | [Ilabrat Ring](https://www.bg-wiki.com/ffxi/Ilabrat_Ring), [Regal Ring](https://www.bg-wiki.com/ffxi/Regal_Ring) |
-| Back | Camulus’s Mantle (AGI / R.Att / WS Dmg) |
-
-## 🎲 Roll / Utility Set
-| Slot | Item |
-|------|------|
-| Head | [Lanun Tricorne +3](https://www.bg-wiki.com/ffxi/Lanun_Tricorne_%2B3) |
-| Body | [Chasseur’s Frac +3](https://www.bg-wiki.com/ffxi/Chasseur%27s_Frac_%2B3) |
-| Hands | [Chasseur’s Gants +3](https://www.bg-wiki.com/ffxi/Chasseur%27s_Gants_%2B3) |
-| Legs | [Desultor Tassets](https://www.bg-wiki.com/ffxi/Desultor_Tassets) (Snapshot augments) |
-| Feet | [Lanun Bottes +3](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B3) |
-| Neck | [Loricate Torque +1](https://www.bg-wiki.com/ffxi/Loricate_Torque_%2B1) |
-| Ears | [Etiolation Earring](https://www.bg-wiki.com/ffxi/Etiolation_Earring), [Odnowa Earring +1](https://www.bg-wiki.com/ffxi/Odnowa_Earring_%2B1) |
-| Back | Camulus’s Mantle (Roll Support) |
-
-## 🛡️ Idle / DT / Defensive Set
-| Slot | Item |
-|------|------|
-| Head | Malignance Chapeau |
-| Body | Malignance Tabard |
-| Hands | Malignance Gloves |
-| Legs | Malignance Tights |
-| Feet | Malignance Boots |
-| Neck | Loricate Torque +1 |
-| Rings | [Defending Ring](https://www.bg-wiki.com/ffxi/Defending_Ring), Regal Ring |
-| Back | Camulus’s Mantle (DT) |
+Ranged armor flow:  
+[Meghanada +2 Set](https://www.bg-wiki.com/ffxi/Meghanada_Set) → [Malignance Set](https://www.bg-wiki.com/ffxi/Malignance_Set) → [Nyame Set](https://www.bg-wiki.com/ffxi/Nyame_Set)  
+Add [Lanun Frac +3](https://www.bg-wiki.com/ffxi/Lanun_Frac_%2B3), [Chasseur’s Culottes +3](https://www.bg-wiki.com/ffxi/Chasseur%27s_Culottes_%2B3), [Lanun Bottes +3](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B3).
 
 ---
 
-## 🔗 References
-- [BG‑Wiki – All Jobs Gear Sets (Corsair)](https://www.bg-wiki.com/ffxi/All_Jobs_Gear_Sets/Corsair)  
-- [BG‑Wiki – Community Corsair Guide](https://www.bg-wiki.com/ffxi/Community_Corsair_Guide)  
-- [BG‑Wiki – Limbus (2025 Update)](https://www.bg-wiki.com/ffxi/Limbus)  
+## 🎲 Rolls / Utility
+
+| Slot | Phase 1 | Phase 2 | Phase 3 |
+|------|----------|----------|----------|
+| Head | [Lanun Tricorne +2](https://www.bg-wiki.com/ffxi/Lanun_Tricorne_%2B2) | [Lanun Tricorne +3](https://www.bg-wiki.com/ffxi/Lanun_Tricorne_%2B3) | same |
+| Body | [Chasseur’s Vest +2](https://www.bg-wiki.com/ffxi/Chasseur%27s_Vest_%2B2) | [Chasseur’s Vest +3](https://www.bg-wiki.com/ffxi/Chasseur%27s_Vest_%2B3) | same |
+| Hands | [Chasseur’s Gants +2](https://www.bg-wiki.com/ffxi/Chasseur%27s_Gants_%2B2) | [Chasseur’s Gants +3](https://www.bg-wiki.com/ffxi/Chasseur%27s_Gants_%2B3) | same |
+| Legs | [Chasseur’s Culottes +2](https://www.bg-wiki.com/ffxi/Chasseur%27s_Culottes_%2B2) | [Chasseur’s Culottes +3](https://www.bg-wiki.com/ffxi/Chasseur%27s_Culottes_%2B3) | same |
+| Feet | [Lanun Bottes +2](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B2) | [Lanun Bottes +3](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B3) | same |
+| Back | [Camulus’s Mantle (CHR/DT/FC)](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle) | — | — |
 
 ---
 
+## 🔫 Quick Draw / Magic WS
 
-# 🗡️ Melee TP + Savage Blade Sets (2025 Retail COR)
-
-### 💥 Why Use Melee COR
-Corsair can excel as a hybrid frontliner in melee range. Naegling + Savage Blade setups allow consistent DPS with lower bullet usage. Ideal for Ambuscade, Sortie, and Odyssey trash where ranged mechanics aren't required.
-
----
-
-## ⚔️ Melee TP Set (Store TP / Haste / Accuracy / DT Hybrid)
-| Slot | Item |
-|------|------|
-| Main | [Naegling](https://www.bg-wiki.com/ffxi/Naegling) |
-| Sub | [Blurred Knife +1](https://www.bg-wiki.com/ffxi/Blurred_Knife_%2B1) / [Crepuscular Knife](https://www.bg-wiki.com/ffxi/Crepuscular_Knife) |
-| Ammo | [Chrono Bullet](https://www.bg-wiki.com/ffxi/Chrono_Bullet) |
-| Head | [Malignance Chapeau](https://www.bg-wiki.com/ffxi/Malignance_Chapeau) |
-| Body | [Malignance Tabard](https://www.bg-wiki.com/ffxi/Malignance_Tabard) |
-| Hands | [Malignance Gloves](https://www.bg-wiki.com/ffxi/Malignance_Gloves) |
-| Legs | [Malignance Tights](https://www.bg-wiki.com/ffxi/Malignance_Tights) |
-| Feet | [Malignance Boots](https://www.bg-wiki.com/ffxi/Malignance_Boots) |
-| Neck | [Anu Torque](https://www.bg-wiki.com/ffxi/Anu_Torque) / [Iskur Gorget](https://www.bg-wiki.com/ffxi/Iskur_Gorget) |
-| Ears | [Telos Earring](https://www.bg-wiki.com/ffxi/Telos_Earring), [Suppanomimi](https://www.bg-wiki.com/ffxi/Suppanomimi) |
-| Rings | [Epona’s Ring](https://www.bg-wiki.com/ffxi/Epona%27s_Ring), [Chirich Ring +1](https://www.bg-wiki.com/ffxi/Chirich_Ring_%2B1) |
-| Back | [Camulus’s Mantle](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle) (DEX+30 / Acc+20 / Atk+20 / Store TP+10 / DT-5%) |
-| Waist | [Sailfi Belt +1](https://www.bg-wiki.com/ffxi/Sailfi_Belt_%2B1) |
-
-🧩 *Notes:*
-- Aim for **cap haste (26%)** through gear + rolls.  
-- Hybrid DT approach keeps you alive in melee range.  
-- Can swap Malignance → Nyame for slightly more WS damage overlap.
+| Slot | Phase 1 | Phase 2 | Phase 3 |
+|------|----------|----------|----------|
+| Head | [Lanun Tricorne +2](https://www.bg-wiki.com/ffxi/Lanun_Tricorne_%2B2) | [Lanun Tricorne +3](https://www.bg-wiki.com/ffxi/Lanun_Tricorne_%2B3) | same |
+| Body | [Lanun Frac +2](https://www.bg-wiki.com/ffxi/Lanun_Frac_%2B2) | [Lanun Frac +3](https://www.bg-wiki.com/ffxi/Lanun_Frac_%2B3) | same |
+| Hands | [Carmine Fin. Ga. +1](https://www.bg-wiki.com/ffxi/Carmine_Fin._Ga._%2B1) | same | [Nyame Gauntlets](https://www.bg-wiki.com/ffxi/Nyame_Gauntlets) |
+| Legs | [Chasseur’s Culottes +3](https://www.bg-wiki.com/ffxi/Chasseur%27s_Culottes_%2B3) | — | same |
+| Feet | [Lanun Bottes +3](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B3) | — | same |
+| Neck | [Baetyl Pendant](https://www.bg-wiki.com/ffxi/Baetyl_Pendant) | — | — |
+| Ear1 | [Friomisi Earring](https://www.bg-wiki.com/ffxi/Friomisi_Earring) | — | — |
+| Ring1 | [Dingir Ring](https://www.bg-wiki.com/ffxi/Dingir_Ring) | — | — |
+| Waist | [Orpheus’s Sash](https://www.bg-wiki.com/ffxi/Orpheus%27s_Sash) | [Hachirin-no-Obi](https://www.bg-wiki.com/ffxi/Hachirin-no-Obi) | — |
 
 ---
 
-## ⚡ Savage Blade WS Set (STR/MND / WS Dmg)
-| Slot | Item |
-|------|------|
-| Main | [Naegling](https://www.bg-wiki.com/ffxi/Naegling) |
-| Sub | [Crepuscular Knife](https://www.bg-wiki.com/ffxi/Crepuscular_Knife) / [Blurred Knife +1](https://www.bg-wiki.com/ffxi/Blurred_Knife_%2B1) |
-| Head | [Nyame Helm](https://www.bg-wiki.com/ffxi/Nyame_Helm) |
-| Body | [Nyame Mail](https://www.bg-wiki.com/ffxi/Nyame_Mail) |
-| Hands | [Nyame Gauntlets](https://www.bg-wiki.com/ffxi/Nyame_Gauntlets) |
-| Legs | [Nyame Flanchard](https://www.bg-wiki.com/ffxi/Nyame_Flanchard) |
-| Feet | [Nyame Sollerets](https://www.bg-wiki.com/ffxi/Nyame_Sollerets) |
-| Neck | [Fotia Gorget](https://www.bg-wiki.com/ffxi/Fotia_Gorget) |
-| Waist | [Sailfi Belt +1](https://www.bg-wiki.com/ffxi/Sailfi_Belt_%2B1) / [Fotia Belt](https://www.bg-wiki.com/ffxi/Fotia_Belt) |
-| Ears | [Ishvara Earring](https://www.bg-wiki.com/ffxi/Ishvara_Earring), [Moonshade Earring](https://www.bg-wiki.com/ffxi/Moonshade_Earring) |
-| Rings | [Epaminondas’s Ring](https://www.bg-wiki.com/ffxi/Epaminondas%27s_Ring), [Regal Ring](https://www.bg-wiki.com/ffxi/Regal_Ring) |
-| Back | [Camulus’s Mantle](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle) (STR+30 / Acc+20 / Atk+20 / WS Dmg+10%) |
+## 💥 Weapon Skills
 
-💡 *Notes:*
-- Savage Blade scales 50% STR / 50% MND.  
-- Nyame’s balanced stats make it ideal.  
-- Moonshade’s TP Bonus remains one of the largest WS DPS gains.  
-- Pair with /WAR or /DNC depending on content type.
+### 🧨 Leaden Salute
+- **Phase 1:** [Pixie Hairpin +1](https://www.bg-wiki.com/ffxi/Pixie_Hairpin_%2B1), [Lanun Frac +2](https://www.bg-wiki.com/ffxi/Lanun_Frac_%2B2)
+- **Phase 2:** [Baetyl Pendant](https://www.bg-wiki.com/ffxi/Baetyl_Pendant), [Friomisi Earring](https://www.bg-wiki.com/ffxi/Friomisi_Earring)
+- **Phase 3:** [Lanun Frac +3](https://www.bg-wiki.com/ffxi/Lanun_Frac_%2B3), [Lanun Bottes +3](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B3), [Camulus’s Mantle (MAB/WSdmg)](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle)
+
+### 🎯 Last Stand
+- **Phase 1:** [Meghanada +2 Set](https://www.bg-wiki.com/ffxi/Meghanada_Set)
+- **Phase 2:** [Malignance Set](https://www.bg-wiki.com/ffxi/Malignance_Set)
+- **Phase 3:** [Nyame Set](https://www.bg-wiki.com/ffxi/Nyame_Set) + [Camulus’s Mantle (AGI/WSdmg)](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle)
+
+### ⚔️ Savage Blade
+- **Phase 1:** Your current Adhemar/Mummu/Orpheus/Sailfi combo  
+- **Phase 2:** [Nyame 5/5](https://www.bg-wiki.com/ffxi/Nyame_Set)
+- **Phase 3:** [Rostam C](https://www.bg-wiki.com/ffxi/Rostam) + [Camulus’s Mantle (STR/WSdmg)](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle)
+
+### 🔥 Wildfire (Optional)
+- **Phase 1:** [Pixie Hairpin +1](https://www.bg-wiki.com/ffxi/Pixie_Hairpin_%2B1), [Baetyl Pendant](https://www.bg-wiki.com/ffxi/Baetyl_Pendant)
+- **Phase 2:** [Lanun Frac +3](https://www.bg-wiki.com/ffxi/Lanun_Frac_%2B3), [Orpheus’s Sash](https://www.bg-wiki.com/ffxi/Orpheus%27s_Sash)
+- **Phase 3:** [Lanun Bottes +3](https://www.bg-wiki.com/ffxi/Lanun_Bottes_%2B3), [Camulus’s Mantle (MAB/MDmg/WSdmg)](https://www.bg-wiki.com/ffxi/Camulus%27s_Mantle)
 
 ---
+
+## 🌦️ Elemental / Weather Support
+| Item | Purpose | BG-Wiki |
