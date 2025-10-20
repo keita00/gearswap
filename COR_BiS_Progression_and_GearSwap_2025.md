@@ -5,8 +5,8 @@
 
 ## 🧭 1. Introduction
 
-Corsair (COR) in 2025 stands as one of FFXI’s most versatile and rewarding jobs — capable of meleeing beside WARs, sniping like a RNG, or supporting like a BRD.  
-This guide is designed to take you **from starter gear to full BiS**, covering **Hybrid, Ranged, and Support** builds, and formatted for **GearSwap integration**.
+Corsair (COR) in 2025 remains one of FFXI’s most versatile jobs — a mix of **ranged, melee, and support**, excelling in hybrid combat and utility.  
+This guide covers **Hybrid, Ranged, and Support** paths from early gearing to full BiS with integrated **GearSwap references** and **BG‑Wiki links**.
 
 ---
 
@@ -14,30 +14,38 @@ This guide is designed to take you **from starter gear to full BiS**, covering *
 
 | Phase | Description | Focus |
 |--------|--------------|--------|
-| **Phase 0 – Starter** | You’re coming from THF gear. Use shared pieces like Adhemar, Mummu, or Pillager’s. | Learn COR rolls, unlock AF/Relic. |
-| **Phase 1 – Early Gear** | Obtain Tauret, Fomalhaut, and basic Malignance pieces. | Start melee + ranged hybrid play. |
-| **Phase 2 – Endgame Ready** | Full Malignance 5/5, Rostam C+D, Lanun +3, Chasseur +3. | Competitive across all content. |
-| **Phase 3 – Full BiS (2025)** | Death Penalty (119 III), Nyame +4, 4× Camulus’s Mantles. | Top‑tier hybrid, ranged, and support sets. |
+| **Phase 0 – Starter** | Use your existing THF gear (Adhemar, Mummu, Pillager’s). | Learn COR mechanics and unlock AF/Relic. |
+| **Phase 1 – Early Gear** | Obtain Tauret, Fomalhaut, and initial Malignance. | Start playing as melee‑hybrid. |
+| **Phase 2 – Endgame Ready** | Full Malignance 5/5, Rostam (C), Lanun +3, Chasseur +3. | Ready for Odyssey, Sortie, Limbus. |
+| **Phase 3 – Full BiS (2025)** | Death Penalty (119 III), Nyame +4, 4× Camulus’s Mantles. | Ultimate hybrid/ranged/support performance. |
 
 ---
 
-## ⚔️ 3. Rostam & Weapon Paths
+## ⚔️ 3. Rostam Augment Paths (Updated)
 
-| Path | Effect | Role |
-|------|---------|------|
-| **A** | R.Att +50 / Snapshot +10 / Rapid Shot +10 | Pure ranged TP / AutoRA setup |
-| **B** | Ranged WS Damage +10% | WS burst builds (Leaden / Last Stand macro) |
-| **C** | Store TP +10 / Acc/Att +50 | Melee & hybrid builds |
-| **D** | Dual Wield +7 / Triple Attack +5% | Offhand synergy (use with any main) |
+[Rostam](https://www.bg-wiki.com/ffxi/Rostam) has **three official augment paths** gained via Dynamis‑Divergence.
 
-✅ **Recommended for you:**  
-- **Main:** Rostam Path C  
-- **Offhand:** Rostam Path D  
-- Later add **Path A** for full ranged specialization.
+| Path | Bonus | Ideal For |
+|------|--------|-----------|
+| **A** | R.Att +50 / Snapshot +10 / Rapid Shot +10 | Pure ranged TP / AutoRA builds |
+| **B** | Ranged WS Damage +10% / R.Acc +50 / R.Att +50 | *Leaden Salute* / *Last Stand* burst builds |
+| **C** | Store TP +10 / Acc/Att +50 | Hybrid / Melee builds – best all‑rounder |
+
+### 🧭 Dual‑Wield Clarification
+- Augments **apply only to the mainhand**.  
+- A second Rostam offhand gives base stats (DMG 164, TA +5%) but **not** its path bonus.  
+- Most players use **Rostam (C)** mainhand + [Gleti’s Knife](https://www.bg-wiki.com/ffxi/Gleti%27s_Knife) or [Crepuscular Knife](https://www.bg-wiki.com/ffxi/Crepuscular_Knife) offhand.
+
+### ✅ Recommendations
+| Playstyle | Rostam Path | Offhand | Notes |
+|------------|-------------|----------|-------|
+| **Hybrid / Melee COR** | C | Gleti’s Knife | Highest STP + TA synergy |
+| **Ranged COR** | A | Tauret or Gleti’s Knife | Snapshot boost for AutoRA |
+| **WS Burst COR** | B | Crepuscular Knife | *Leaden* / *Last Stand* macro use |
 
 ---
 
-## 💎 4. Gear Sets (BG‑Wiki Linked + GearSwap‑Ready)
+## 💎 4. Gear Sets (BG‑Wiki Linked + GearSwap‑Ready)
 
 ### 4.1 Idle / DT (sets.idle)
 | Slot | Item | Link |
