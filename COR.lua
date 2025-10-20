@@ -7,6 +7,13 @@
 
 texts = require('texts')
 
+send_command('bind f9 gs c toggleWeapon')
+send_command('bind f10 gs c toggleMelee')
+send_command('bind f11 gs c toggleAcc')
+send_command('bind f12 gs c toggleRacc')
+send_command('bind ^f9 gs c toggleDT')        -- ^ = Ctrl
+send_command('bind !f9 gs c toggleMovement')  -- ! = Alt
+
 -- ===========================
 -- State / Toggles
 -- ===========================
