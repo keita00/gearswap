@@ -1,5 +1,5 @@
 -- =========================================================================
--- COR.lua — Full Set Skeleton (NO ITEMS YET)
+-- COR.lua — Full Set Skeleton (Using Your Current THF Gear)
 -- All major sets defined & documented with TODO checklists per slot.
 -- Keeps your current gear when a set is empty.
 -- HUD + Toggles + Capacity Ring alert + Debuff warnings + Day/Weather helper
@@ -11,7 +11,7 @@ texts = require('texts')
 -- State / Toggles
 -- ===========================
 Weapon_Mode   = "Melee"     -- "Melee" | "Gun"
-Melee_Mode    = "Tauret"    -- "Tauret" | "Shijo" | "Naegling" (when you get it)
+Melee_Mode    = "Tauret"    -- "Tauret" | "Shijo" | "Naegling"
 Racc_Array    = {"Default","Acc","HighAcc"}
 Racc_Index    = 1
 Acc_Array     = {"Default","Acc","AccMid","AccHigh"}
@@ -41,7 +41,8 @@ function self_command(cmd)
   if cmd == 'toggleWeapon' then
     Weapon_Mode = (Weapon_Mode == 'Melee') and 'Gun' or 'Melee'
   elseif cmd == 'toggleMelee' then
-    Melee_Mode = (Melee_Mode == 'Tauret') and 'Shijo' or (Melee_Mode == 'Shijo' and 'Naegling' or 'Tauret')
+    Melee_Mode = (Melee_Mode == 'Tauret') and 'Shijo'
+                 or (Melee_Mode == 'Shijo' and 'Naegling' or 'Tauret')
   elseif cmd == 'toggleAcc' then
     Acc_Index  = (Acc_Index % #Acc_Array) + 1
   elseif cmd == 'toggleRacc' then
@@ -60,7 +61,7 @@ function self_command(cmd)
 end
 
 -- ===========================
--- Sets (EMPTY, with TODOs to guide you)
+-- Sets (Using THF gear where available)
 -- ===========================
 function get_sets()
   update_hud()
@@ -70,54 +71,109 @@ function get_sets()
   -- IDLE / DEFENSIVE
   ---------------------------------------------------------------------------
   sets.idle = {
-    -- TODO Idle/Refresh Baseline:
-    -- main= , sub= , range= , ammo=
-    -- head= , body= , hands= , legs= , feet=
-    -- neck= , ear1= , ear2= , ring1= , ring2= , back= , waist=
-    -- Notes: Aim for Refresh+ and some DT. Malignance/Nyame later; Warder's/Defending early.
+    main= "Tauret",
+    sub= "Gleti's Knife",
+    --range= "", ammo="",
+    head= "Adhemar Bonnet +1",  -- you have this
+    body= "Adhemar Jacket +1",  -- if you have it; else placeholder
+    hands= "Adhemar Wristbands +1",  -- if you have
+    legs= "Mummu Kecks +1",  -- you have this
+    feet= "Adhemar Gamashes +1",  -- if you have
+    neck= "Regal Necklace",  -- placeholder if not
+    ear1= "Suppanomimi",  -- common THF ear
+    ear2= "Telos Earring",  -- placeholder/highAcc ear
+    ring1= "Defending Ring",
+    ring2= "Moonlight Ring",
+    back= "Toutatis's Cape",
+    waist= "Reiki Yotai"
+    -- Notes: Use your current gear for idle until COR-specific upgrades
   }
 
   sets.dt = {
-    -- TODO PDT/MDT Hybrid:
-    -- head= , body= , hands= , legs= , feet= , ring1= , ring2= , back= , neck= , waist= , ear1= , ear2=
-    -- Notes: 50% total DT target with gear+rolls; Malignance/Nyame standard.
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Warder's Charm +1",
+    ear1= "Suppanomimi",
+    ear2= "Telos Earring",
+    ring1= "Defending Ring",
+    ring2= "Moonlight Ring",
+    back= "Toutatis's Cape",
+    waist= "Carrier's Sash"
+    -- Notes: Replace with Malignance/Nyame later.
   }
 
   sets.eva = {
-    -- TODO Evasion build:
-    -- head= , body= , hands= , legs= , feet= , neck= , back= , ring1= , ring2=
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Warder's Charm +1",
+    ring1= "Defending Ring",
+    ring2= "Moonlight Ring",
+    back= "Toutatis's Cape",
+    waist= "Flume Belt +1"
   }
 
   ---------------------------------------------------------------------------
   -- ENGAGED (MELEE TP)
   ---------------------------------------------------------------------------
   sets.engaged = {
-    -- TODO Melee TP (Store TP/Haste/Acc/DT hybrid):
-    -- main= , sub= , ammo=
-    -- head= , body= , hands= , legs= , feet=
-    -- neck= , ear1= , ear2= , ring1= , ring2= , back= , waist=
-    -- Notes: Use Tauret/Shijo now; Naegling later. Sailfi+1/Fotia, Epona/Chirich, Telos/Suppa are fine starters.
+    main= "Tauret",
+    sub= "Gleti's Knife",
+    ammo= "Aurgelmir Orb +1",
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Asn. Gorget +2",
+    ear1= "Sherida Earring",
+    ear2= "Suppanomimi",
+    ring1= "Epona's Ring",
+    ring2= "Chirich Ring +1",
+    back= "Toutatis's Cape",
+    waist= "Sailfi Belt +1"
+    -- Notes: Your current TP melee gear from THF applies until you upgrade.
   }
-  sets.engaged.Acc     = set_combine(sets.engaged, { -- TODO small acc bumps here
+  sets.engaged.Acc     = set_combine(sets.engaged, {
+    -- TODO Add ACC-specific items here when you have them
   })
-  sets.engaged.AccMid  = set_combine(sets.engaged.Acc, { -- TODO more acc/less DA
+  sets.engaged.AccMid  = set_combine(sets.engaged.Acc, {
+    -- TODO Mid-ACC variant
   })
-  sets.engaged.AccHigh = set_combine(sets.engaged.AccMid, { -- TODO cap hit-rate builds
+  sets.engaged.AccHigh = set_combine(sets.engaged.AccMid, {
+    -- TODO High-ACC variant
   })
 
   ---------------------------------------------------------------------------
   -- RANGED TP (AutoRA)
   ---------------------------------------------------------------------------
   sets.ranged = {
-    -- TODO Ranged TP baseline:
-    -- range= , ammo=
-    -- head= , body= , hands= , legs= , feet=
-    -- neck= , ear1= , ear2= , ring1= , ring2= , back= , waist=
-    -- Notes: Snapshot/Rapid Shot for precast, then R.Attk/Acc/STP in midcast. Meghanada+2 entry → Malignance/Nyame.
+    range= "Fomalhaut",  -- if you have; else replace with placeholder gun
+    ammo= "Devastating Bullet",
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Iskur Gorget",
+    ear1= "Telos Earring",
+    ear2= "Crepuscular Earring",
+    ring1= "Regal Ring",
+    ring2= "Epaminondas’s Ring",
+    back= "Camulus’s Mantle",
+    waist= "Orpheus’s Sash"
+    -- Notes: Use THF gear where applicable until COR ranged upgrade.
   }
-  sets.ranged.Acc     = set_combine(sets.ranged, { -- TODO add R.Acc pieces
+  sets.ranged.Acc     = set_combine(sets.ranged, {
+    -- TODO Add Ranged ACC gear when you have them
   })
-  sets.ranged.HighAcc = set_combine(sets.ranged.Acc, { -- TODO max R.Acc
+  sets.ranged.HighAcc = set_combine(sets.ranged.Acc, {
+    -- TODO Max ACC Ranged gear
   })
 
   ---------------------------------------------------------------------------
@@ -125,45 +181,92 @@ function get_sets()
   ---------------------------------------------------------------------------
   sets.precast = {}
   sets.precast.RA = {
-    -- TODO Snapshot/Rapid Shot (precast only):
-    -- head= , body= , hands= , legs= , feet= , back= , waist=
-    -- Note: Chasseur's +3 legs (Snapshot+10), Lanun Bottes +3, Desultor Tassets (aug), Ambu capes with Snapshot.
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    back= "Toutatis's Cape",
+    waist= "Yemaya Belt"
+    -- Notes: Snapshot gear not yet fully COR-specific.
   }
   sets.midcast = {}
   sets.midcast.RA = {
-    -- TODO Midcast Ranged (R.Acc/R.Attk/STP):
-    -- head= , body= , hands= , legs= , feet= , neck= , ear1= , ear2= , ring1= , ring2= , back= , waist=
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Iskur Gorget",
+    ear1= "Telos Earring",
+    ear2= "Crepuscular Earring",
+    ring1= "Regal Ring",
+    ring2= "Epaminondas’s Ring",
+    back= "Camulus’s Mantle",
+    waist= "Orpheus’s Sash"
   }
 
   ---------------------------------------------------------------------------
-  -- ROLLS (JA) / UTILITY
+  -- ROLLS / UTILITY
   ---------------------------------------------------------------------------
   sets.JA = {
     ["Phantom Roll"] = {
-      -- TODO Roll potency/duration/CHR/DT:
-      -- head= (Lanun +3) , body= (Chasseur +3) , hands= (Chasseur +3) , feet= (Lanun +3)
-      -- neck= (Loricate+1/Regal) , back= (Camulus CHR/DT/FC) , ring= (DT/utility)
+      head= "Lanun Tricorne +3",
+      body= "Chasseur’s Vest +3",
+      hands= "Chasseur’s Gants +3",
+      feet= "Lanun Bottes +3",
+      neck= "Regal Necklace",
+      back= "Camulus’s Mantle",
+      ring1= "Defending Ring",
+      ring2= "Moonlight Ring"
     },
-    ["Double-Up"] = { -- same as Phantom Roll or lighter DT
+    ["Double-Up"] = {
+      -- TODO Use same or lighter gear
+      head= "Lanun Tricorne +3",
+      body= "Chasseur’s Vest +3",
+      hands= "Chasseur’s Gants +3",
+      feet= "Lanun Bottes +3"
     },
-    ["Random Deal"] = { -- TODO Fast Cast/DT
+    ["Random Deal"] = {
+      -- TODO Fast Cast/DT
+      head= "Adhemar Bonnet +1",
+      body= "Adhemar Jacket +1",
+      hands= "Adhemar Wristbands +1"
     },
-    ["Wild Card"]   = { -- TODO DT/Enmity-
+    ["Wild Card"]   = {
+      head= "Adhemar Bonnet +1",
+      body= "Adhemar Jacket +1",
+      hands= "Adhemar Wristbands +1"
     },
-    ["Snake Eye"]   = { -- TODO FC/DT
+    ["Snake Eye"]   = {
+      head= "Adhemar Bonnet +1",
+      body= "Adhemar Jacket +1",
+      hands= "Adhemar Wristbands +1"
     },
-    ["Fold"]        = { -- TODO FC/DT
+    ["Fold"]        = {
+      head= "Adhemar Bonnet +1",
+      body= "Adhemar Jacket +1",
+      hands= "Adhemar Wristbands +1"
     },
   }
 
   ---------------------------------------------------------------------------
-  -- QUICK DRAW (magical shot)
+  -- QUICK DRAW
   ---------------------------------------------------------------------------
   sets.QD = {
-    -- TODO MAB/M.Acc/INT/QD recast:
-    -- ammo= , head= (Lanun/Chasseur/Nyame) , body= (Lanun Frac +3) , hands= (Carmine+1/Nyame) ,
-    -- legs= (Chasseur +3) , feet= (Lanun +3) , neck= (Baetyl) , ears= (Friomisi/Crematio) ,
-    -- rings= (Dingir/Regal/Weatherspoon) , back= (Camulus MAB/MDmg/WSdmg) , waist= (Orpheus/Hachirin)
+    ammo= "Animikii Bullet",
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Baetyl Pendant",
+    ear1= "Friomisi Earring",
+    ear2= "Moonshade Earring",
+    ring1= "Dingir Ring",
+    ring2= "Regal Ring",
+    back= "Camulus’s Mantle",
+    waist= "Hachirin-no-Obi"
   }
 
   ---------------------------------------------------------------------------
@@ -171,52 +274,94 @@ function get_sets()
   ---------------------------------------------------------------------------
   sets.ws = {}
 
-  -- Leaden Salute (Magic WS)
   sets.ws["Leaden Salute"] = {
-    -- TODO Magic WS (AGI/MAB/MDmg/Dark affinity):
-    -- range= , ammo=
-    -- head= (Pixie+1) , body= (Lanun Frac +3) , hands= (Carmine+1/Nyame) ,
-    -- legs= (Chasseur +3) , feet= (Lanun +3) ,
-    -- neck= (Baetyl) , ear1= (Friomisi) , ear2= (Crematio/Moonshade) ,
-    -- ring1= (Archon/Dingir) , ring2= (Regal) ,
-    -- back= (Camulus MAB/MDmg/WSdmg) , waist= (Orpheus / Hachirin-no-Obi on Dark day/weather)
+    range= "Death Penalty",
+    ammo= "Animikii Bullet",
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Baetyl Pendant",
+    ear1= "Friomisi Earring",
+    ear2= "Moonshade Earring",
+    ring1= "Dingir Ring",
+    ring2= "Regal Ring",
+    back= "Camulus’s Mantle",
+    waist= "Orpheus’s Sash"
   }
 
-  -- Last Stand (Physical Ranged WS)
   sets.ws["Last Stand"] = {
-    -- TODO Physical Ranged WS (AGI/R.Attk/WSdmg):
-    -- range= , ammo=
-    -- head/body/hands/legs/feet= (Nyame set baseline) ,
-    -- neck= (Fotia) , waist= (Fotia) ,
-    -- ears= (Ishvara/Telos) , rings= (Ilabrat/Regal) , back= (Camulus AGI/R.Attk/WSdmg)
+    range= "Fomalhaut",
+    ammo= "Devastating Bullet",
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Fotia Gorget",
+    ear1= "Ishvara Earring",
+    ear2= "Moonshade Earring",
+    ring1= "Ilabrat Ring",
+    ring2= "Regal Ring",
+    back= "Camulus’s Mantle",
+    waist= "Fotia Belt"
   }
 
-  -- Savage Blade (Melee WS)
   sets.ws["Savage Blade"] = {
-    -- TODO STR/MND/WSdmg:
-    -- main= (Naegling eventually), sub= , ammo=
-    -- head/body/hands/legs/feet= (Nyame set baseline) ,
-    -- neck= (Fotia) or Sailfi+1 at low atk ,
-    -- ear1= (Ishvara) , ear2= (Moonshade) ,
-    -- rings= (Epaminondas’s/Regal) , back= (Camulus STR/WSdmg) , waist= (Sailfi+1 or Fotia)
+    main= "Tauret",
+    sub= "Gleti's Knife",
+    ammo= "Aurgelmir Orb +1",
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Fotia Gorget",
+    ear1= "Ishvara Earring",
+    ear2= "Moonshade Earring",
+    ring1= "Epaminondas’s Ring",
+    ring2= "Regal Ring",
+    back= "Camulus’s Mantle",
+    waist= "Sailfi Belt +1"
   }
 
-  -- Wildfire (Magic WS, optional if you use it)
   sets.ws["Wildfire"] = {
-    -- TODO MAB/MDmg/AGI:
-    -- very similar shell to Leaden but Fire-element setup; Orpheus situational.
+    range= "Fomalhaut",
+    ammo= "Devastating Bullet",
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Baetyl Pendant",
+    ear1= "Friomisi Earring",
+    ear2= "Moonshade Earring",
+    ring1= "Dingir Ring",
+    ring2= "Regal Ring",
+    back= "Camulus’s Mantle",
+    waist= "Hachirin-no-Obi"
   }
 
-  -- Generic fallback (will equip whatever you add)
   sets.ws.Default = {
-    -- TODO all-purpose fallback WS set
+    head= "Adhemar Bonnet +1",
+    body= "Adhemar Jacket +1",
+    hands= "Adhemar Wristbands +1",
+    legs= "Mummu Kecks +1",
+    feet= "Adhemar Gamashes +1",
+    neck= "Regal Necklace",
+    ear1= "Suppanomimi",
+    ear2= "Telos Earring",
+    ring1= "Defending Ring",
+    ring2= "Moonlight Ring"
   }
 
   ---------------------------------------------------------------------------
   -- ELEMENTAL DAY/WEATHER SUPPORT
   ---------------------------------------------------------------------------
   sets.Obi = {
-    -- TODO waist="Hachirin-no-Obi" (if owned) — otherwise your Orpheus logic will be enough
+    waist="Hachirin-no-Obi"
+    -- Notes: Use when owned for day/weather boost
   }
 
 end
@@ -226,18 +371,17 @@ end
 -- ===========================
 local function equip_melee_weapons()
   if Melee_Mode == "Shijo" then
-    equip({main={name="Shijo", augments={'Path: D'}}, sub="Gleti's Knife"})
+    equip({main="Shijo", sub="Gleti's Knife"})
   elseif Melee_Mode == "Naegling" then
-    equip({main="Naegling", sub="Gleti's Knife"}) -- equips only if you own it
+    equip({main="Naegling", sub="Gleti's Knife"})
   else
     equip({main="Tauret", sub="Gleti's Knife"})
   end
 end
 
 local function equip_gun()
-  -- Equip whatever best gun you own. Since sets are empty, we only set the slot.
   if player.equipment.range ~= 'empty' then
-    equip({range=player.equipment.range}) -- keep current gun
+    equip({range=player.equipment.range})
   end
 end
 
@@ -249,14 +393,14 @@ local function check_capacity_ring()
 end
 
 local function check_debuffs()
-  for _,d in ipairs({"Doom","Silence","Paralysis"}) do
+  for _, d in ipairs({"Doom","Silence","Paralysis"}) do
     if buffactive[d] then add_to_chat(123,'Debuff: '..d..' — remedy it!') end
   end
 end
 
 local function leaden_dayweather_boost()
   if world.weather_element == 'Dark' or world.day_element == 'Dark' then
-    equip(sets.Obi) -- uses Hachirin if you add it later
+    equip(sets.Obi)
   end
 end
 
@@ -276,7 +420,6 @@ function precast(spell)
     end
     add_to_chat(122,'WS: '..spell.english)
   elseif spell.action_type == 'Ranged Attack' then
-    -- Precast Snapshot
     equip(sets.precast.RA)
   end
 end
@@ -285,9 +428,8 @@ function midcast(spell)
   if spell.action_type == 'Ranged Attack' then
     local racc = Racc_Array[Racc_Index]
     if     racc == "HighAcc" then equip(sets.midcast.RA and sets.ranged.HighAcc or {})
-    elseif racc == "Acc"     then equip(sets.midcast.RA and sets.ranged.Acc     or {})
-    else                           equip(sets.midcast.RA and sets.ranged        or {})
-    end
+    elseif racc == "Acc"     then equip(sets.midcast.RA and sets.ranged.Acc or {})
+    else                           equip(sets.midcast.RA and sets.ranged or {}) end
   end
 end
 
@@ -300,13 +442,12 @@ function aftercast(spell)
     local m = DT_Modes[DT_Mode_Index]
     if     m == "DT"  then equip(sets.dt)
     elseif m == "EVA" then equip(sets.eva)
-    else                   equip(sets.idle)
-    end
+    else                   equip(sets.idle) end
     if Weapon_Mode == "Melee" then equip_melee_weapons() else equip_gun() end
   end
 
   if Movement_Mode then
-    -- TODO add your movement feet when you decide which (e.g., Hermes' Sandals)
+    -- TODO add movement feet (e.g., Hermes' Sandals)
   end
 
   check_debuffs()
@@ -318,11 +459,11 @@ function status_change(new, old)
 end
 
 -- ===========================
--- Suggested keybinds (type once or put in init.txt)
+-- Suggested keybinds
 -- ===========================
 -- //gs c toggleWeapon
 -- //gs c toggleMelee
--- //gs c toggleAcc
--- //gs c toggleRacc
--- //gs c toggleDT
--- //gs c toggleMovement
+-- // //gs c toggleAcc
+-- // //gs c toggleRacc
+-- // //gs c toggleDT
+-- // //gs c toggleMovement
